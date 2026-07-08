@@ -1,0 +1,110 @@
+{
+  "song_id": 13554660,
+  "song_title": "Make Them Remember",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-make-them-remember-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Please stop askin’ about what’s goin’ on with 23 and me\n I’m a real nigga and he’s not, it’s in my DNA”, what is Drake getting at?",
+      "explanation": "Tired of being asked to explain or relitigate what happened between him and LeBron, Drake reduces it to simply LeBron not being real.",
+      "source": {
+        "annotation_id": 39777826,
+        "referent_id": 39777826,
+        "annotation_url": "https://genius.com/39777826/Drake-make-them-remember/Please-stop-askin-about-whats-goin-on-with-23-and-me-im-a-real-nigga-and-hes-not-its-in-my-dna",
+        "verified": false,
+        "votes_total": 58,
+        "mixpanel_opens": 30304
+      },
+      "options": [
+        "The “jacket” Drake references here is the predator/child molester label that Kendrick Lamar pinned on him throughout their 2024 feud, most explicitly on “meet the grahams” and…",
+        "“Boots to the ground” is a military phrase referring to soldiers physically being deployed into active combat zones.",
+        "This is a callback to Kendrick Lamar’s dig from “Euphoria”: Cutthroat business, you got shit twisted What is it?",
+        "Tired of being asked to explain or relitigate what happened between him and LeBron, Drake reduces it to simply LeBron not being real."
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “I could’ve fell back like the married rapper, but we engaged\n I told y’all I’m settled in my evil ways”, what is Drake getting at?",
+      "explanation": "The “married rapper” is a reference to J. Cole, who is famously married to his high school sweetheart Melissa Heholt.",
+      "source": {
+        "annotation_id": 39775856,
+        "referent_id": 39775856,
+        "annotation_url": "https://genius.com/39775856/Drake-make-them-remember/I-couldve-fell-back-like-the-married-rapper-but-we-engaged-i-told-yall-im-settled-in-my-evil-ways",
+        "verified": false,
+        "votes_total": 42,
+        "mixpanel_opens": 26315
+      },
+      "options": [
+        "The “married rapper” is a reference to J. Cole, who is famously married to his high school sweetheart Melissa Heholt.",
+        "On a double date, there are two women present, so the ratio of “pussy” is doubled. That’s Drake’s way of amplifying the emasculation.",
+        "Drake is framing the entire beef as a rigged game, one where someone rewrote the rules mid-match and never handed him the updated playbook.",
+        "Pigg-backing off the market scheme from the last bar, A flea market is where you go to sell things nobody wanted the first time around, for pennies, to whoever happens to wander…"
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Is it the fair skin or the Jewish roots?\n Why people wanna not see me on top of the mountain like I do the Dew”, what is Drake getting at?",
+      "explanation": "Drake is of Ashkenazi Jewish and African-American decent from his maternal side and paternal side, respectively, resulting in him being a mixed Black man with lighter “fairer”…",
+      "source": {
+        "annotation_id": 39776411,
+        "referent_id": 39776411,
+        "annotation_url": "https://genius.com/39776411/Drake-make-them-remember/Is-it-the-fair-skin-or-the-jewish-roots-why-people-wanna-not-see-me-on-top-of-the-mountain-like-i-do-the-dew",
+        "verified": false,
+        "votes_total": 48,
+        "mixpanel_opens": 26195
+      },
+      "options": [
+        "Drake is of Ashkenazi Jewish and African-American decent from his maternal side and paternal side, respectively, resulting in him being a mixed Black man with lighter “fairer”…",
+        "Muggsy Bogues is NBA legend and at just 5'3\", the shortest player in the history of the league. Due to his height he is a player for whom the dunk remained essentially impossible.",
+        "Drake is making a distinction between being known and being known everywhere.",
+        "When “What Did I Miss?” dropped on July 5, 2025, it debuted at No. 2 on the Billboard Hot 100, blocked from the top spot by Alex Warren’s “Ordinary”."
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “The “jacket” Drake references here is the predator/child molester label that Kendrick Lamar pinned on him throughout their 2024 feud, most explicitly on “meet the grahams” and…”",
+      "explanation": "The “jacket” Drake references here is the predator/child molester label that Kendrick Lamar pinned on him throughout their 2024 feud, most explicitly on “meet the grahams” and…",
+      "source": {
+        "annotation_id": 39775152,
+        "referent_id": 39775152,
+        "annotation_url": "https://genius.com/39775152/Drake-make-them-remember/You-put-that-jacket-on-anybody-youre-funeral-bound-but-like-the-goal-post-im-out-here-just-movin-around",
+        "verified": false,
+        "votes_total": 31,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "Ain’t been in the K since I flew the coupe\n I was on Coulson Ave. with my mama, numbers started goin’ through the roof",
+        "I’m sixteen years in the game, this ain’t Minute Maid",
+        "You put that jacket on anybody, you’re funeral bound\n But like the goal post, I’m out here just movin’ around",
+        "You boys too pussy like double dates\n Runnin’ out the 6ix like you won a race"
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Make Them Remember” about?",
+      "explanation": "Leaked on May 13, 2026, “Make Them Remember” was originally thought to be another song in Drake’s timestamp series, named “1am in Albany”.",
+      "source": {
+        "song_id": 13554660,
+        "field": "description"
+      },
+      "options": [
+        "“The K” refers to the Kennedy Road in Scarborough.",
+        "Rigor Mortis is the third stage a human body goes through after death.",
+        "Leaked on May 13, 2026, “Make Them Remember” was originally thought to be another song in Drake’s timestamp series, named “1am in Albany”.",
+        "Drake’s mainstream arrival is typically traced back to 2009, when his So Far Gone mixtape catapulted him from a relatively obscure Canadian actor into one of the most…"
+      ],
+      "answer_index": 2
+    }
+  ]
+}

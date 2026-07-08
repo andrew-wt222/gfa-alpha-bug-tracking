@@ -1,0 +1,110 @@
+{
+  "song_id": 12191132,
+  "song_title": "National Treasures",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-national-treasures-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Come do your show and get back on the plane\n But don’t stick around in the 6ix\n Don’t stick around in the 6ix”, what is Drake getting at?",
+      "explanation": "In June 2025, Kendrick Lamar brought his Grand National Tour with SZA to Toronto for two sold-out shows at the Rogers Centre.",
+      "source": {
+        "annotation_id": 39776970,
+        "referent_id": 39776970,
+        "annotation_url": "https://genius.com/39776970/Drake-national-treasures/Come-do-your-show-and-get-back-on-the-plane-but-dont-stick-around-in-the-6ix-dont-stick-around-in-the-6ix",
+        "verified": false,
+        "votes_total": 46,
+        "mixpanel_opens": 47622
+      },
+      "options": [
+        "Having accumulated a hefty sum of wealth from music and business ventures, Drake is flexing his riches and the fact that he is privileged enough to treat “check signing” as a kink.",
+        "This is Drake’s way of saying how out of touch with normal, everyday life due to his wealthy lifestyle.",
+        "In June 2025, Kendrick Lamar brought his Grand National Tour with SZA to Toronto for two sold-out shows at the Rogers Centre.",
+        "“The 6ix” is a nickname for Toronto, which comes from the 416 and 647 area codes in the city."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Ironic ’cause the Iceman was a nice man, now I’m hot and cold”, what is Drake getting at?",
+      "explanation": "Drake has been known as a “nice guy” for many years but after an intense 2024 that saw the music industry turn against him, he’s now embracing a more cutthroat or “cold” persona.",
+      "source": {
+        "annotation_id": 39787677,
+        "referent_id": 39787677,
+        "annotation_url": "https://genius.com/39787677/Drake-national-treasures/Ironic-cause-the-iceman-was-a-nice-man-now-im-hot-and-cold",
+        "verified": false,
+        "votes_total": 191,
+        "mixpanel_opens": 41800
+      },
+      "options": [
+        "A “stick” and a “pipe” are both slang terms for guns.",
+        "When someone is “racking their brain,” it means they’re trying hard to remember something or solve a problem—Drake is focused on making his money—but a “rack” is also slang for…",
+        "Drake has been known as a “nice guy” for many years but after an intense 2024 that saw the music industry turn against him, he’s now embracing a more cutthroat or “cold” persona.",
+        "This is another line aimed at professional basketball player DeMar DeRozan."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “R.I.P. Kobe, but y’all niggas brokie\n That’s probably why y’all be shackin’ together”, what is Drake getting at?",
+      "explanation": "This is a homage to Kobe Bryant, the legendary NBA player who passed away in 2020.",
+      "source": {
+        "annotation_id": 36947564,
+        "referent_id": 36947564,
+        "annotation_url": "https://genius.com/36947564/Drake-national-treasures/Rip-kobe-but-yall-niggas-brokie-thats-probably-why-yall-be-shackin-together",
+        "verified": false,
+        "votes_total": 85,
+        "mixpanel_opens": 37791
+      },
+      "options": [
+        "“Ice” is Drake’s alter ego for the ICEMAN era.",
+        "This is a homage to Kobe Bryant, the legendary NBA player who passed away in 2020.",
+        "Alex Moss is a New York–based celebrity jeweler known for creating custom diamond pieces for popular rappers, including Drake.",
+        "This is the producer tag for Wraith9, a British recording artist and producer, known for working with UK artists like EsDeeKid, Fimiguerrero and fakemink."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “The “tower” Drake is talking about is the CN Tower in Toronto, one of Canada’s most iconic landmarks.”",
+      "explanation": "The “tower” Drake is talking about is the CN Tower in Toronto, one of Canada’s most iconic landmarks.",
+      "source": {
+        "annotation_id": 36947500,
+        "referent_id": 36947500,
+        "annotation_url": "https://genius.com/36947500/Drake-national-treasures/Yeah-for-the-city-though-yeah-they-gotta-light-the-tower-up-for-this-yeah-okay",
+        "verified": false,
+        "votes_total": 44,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "Check signin’ is my kink, pushin’ out ink, I feel like a squid",
+        "Alex Moss tryna bring me back a hundred years from now, he got my body froze",
+        "And my mind on the money, I’m rackin’ my brain\n And none of you pussies is actin’ the same",
+        "Yeah\n For the city, though\n Yeah\n They gotta light the tower up for this\n Yeah\n Okay"
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “National Treasures” about?",
+      "explanation": "“National Treasures” sees Drake claiming his untouchable status in his hometown of Toronto (the “6ix”) and warns his opposition not to stick around there.",
+      "source": {
+        "song_id": 12191132,
+        "field": "description"
+      },
+      "options": [
+        "The “tower” Drake is talking about is the CN Tower in Toronto, one of Canada’s most iconic landmarks.",
+        "People who were once in Drake’s DMs begging for tickets and fanboying him, are now trying to stop his momentum.",
+        "Having accumulated a hefty sum of wealth from music and business ventures, Drake is flexing his riches and the fact that he is privileged enough to treat “check signing” as a kink.",
+        "“National Treasures” sees Drake claiming his untouchable status in his hometown of Toronto (the “6ix”) and warns his opposition not to stick around there."
+      ],
+      "answer_index": 3
+    }
+  ]
+}

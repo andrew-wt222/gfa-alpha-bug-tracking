@@ -1,0 +1,110 @@
+{
+  "song_id": 10820605,
+  "song_title": "Plot Twist",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-plot-twist-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Is that Drake’s necklace? (It’s mine)\n Oh, you’re, you’re part of his, uh, best friends group?\n One of— yeah, this is our gang\n Aw, what is it called?”, what is Drake getting at?",
+      "explanation": "Drake samples a clip of his close friend Ben, professionally known as BenDaDonnn, and fellow streamer, Yonna Jay.",
+      "source": {
+        "annotation_id": 39775815,
+        "referent_id": 39775815,
+        "annotation_url": "https://genius.com/39775815/Drake-plot-twist/Is-that-drakes-necklace-its-mine-oh-youre-youre-part-of-his-uh-best-friends-group-one-of-yeah-this-is-our-gang-aw-what-is-it-called",
+        "verified": false,
+        "votes_total": 63,
+        "mixpanel_opens": 29341
+      },
+      "options": [
+        "In Drake’s telling, his young crew had the city so locked down that people were afraid to come outside when things got dangerous.",
+        "This rebuttal is aimed especially at Kendrick , given that the title of his main diss track is “Not Like Us.” This line is also reminiscent of Drake’s bars from the leaked track…",
+        "Drake samples a clip of his close friend Ben, professionally known as BenDaDonnn, and fellow streamer, Yonna Jay.",
+        "Drake’s Toronto street affiliations are well documented across the internet."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “I can’t talk on bro case ’cause it’s sticky, free T and free Greezy,”, what is Drake getting at?",
+      "explanation": "“T” refers to fellow Canadian rapper Tory Lanez who is currently serving a ten-year sentence for shooting Megan Thee Stallion.",
+      "source": {
+        "annotation_id": 39779061,
+        "referent_id": 39779061,
+        "annotation_url": "https://genius.com/39779061/Drake-plot-twist/I-cant-talk-on-bro-case-cause-its-sticky-free-t-and-free-greezy",
+        "verified": false,
+        "votes_total": 30,
+        "mixpanel_opens": 28678
+      },
+      "options": [
+        "“T” refers to fellow Canadian rapper Tory Lanez who is currently serving a ten-year sentence for shooting Megan Thee Stallion.",
+        "After Kendrick Lamar’s concert in Toronto, reports and viral videos showed him leaving the venue with an unusually large police and security convoy (about 25 to 30 vehicles) and…",
+        "Drake is spelling out “MOB OCTOBER GANG” letter by letter. But the delivery is unique, he’s twisting his fingers into gang signs, gesturing every affiliation he has in succession.",
+        "“BPM” stands for beats per minute, the tempo measurement every producer works with. Drake is saying he’d rough up a producer mid-session asking about the technical specs of a beat."
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “October’s Own is the label, seven-figure deal was a fable\n Eight-figure bought out the neighbors, nine figures turnin’ the tables”, what is Drake getting at?",
+      "explanation": "When an artist is on the come-up, a “seven-figure deal” can sound too good to be true.",
+      "source": {
+        "annotation_id": 39778855,
+        "referent_id": 39778855,
+        "annotation_url": "https://genius.com/39778855/Drake-plot-twist/Octobers-own-is-the-label-seven-figure-deal-was-a-fable-eight-figure-bought-out-the-neighbors-nine-figures-turnin-the-tables",
+        "verified": false,
+        "votes_total": 25,
+        "mixpanel_opens": 26826
+      },
+      "options": [
+        "When an artist is on the come-up, a “seven-figure deal” can sound too good to be true.",
+        "“Able” is a homonym for “Abel,” the first name of R&B artist The Weeknd, who was once heavily endorsed by Drake when he was breaking into the music business.",
+        "A reference to the Galloway neighborhood in Scarborough, Ontario, known locally as G-Way to the people who grew up there.",
+        "In an era where street credibility is performed online, where everything gets documented and posted on socials for clout, Drake is saying his circle operates by a completely…"
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “This rebuttal is aimed especially at Kendrick , given that the title of his main diss track is “Not Like Us.” This line is also reminiscent of Drake’s bars from the leaked track…”",
+      "explanation": "This rebuttal is aimed especially at Kendrick , given that the title of his main diss track is “Not Like Us.” This line is also reminiscent of Drake’s bars from the leaked track…",
+      "source": {
+        "annotation_id": 39784507,
+        "referent_id": 39784507,
+        "annotation_url": "https://genius.com/39784507/Drake-plot-twist/These-niggas-a-joke-and-i-wouldnt-wanna-be-em",
+        "verified": false,
+        "votes_total": 11,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "I’ll beat a producer like, “What’s the BPM?” I cannot de-escalate things if we see ’em",
+        "These niggas a joke and I wouldn’t wanna be ’em",
+        "My young boys don’t do it for clout, if they do it, they cover they head and they mouth",
+        "I don’t need security to ride ’round town,"
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Plot Twist” about?",
+      "explanation": "“Plot Twist” was first previewed during Drake’s birthday party in Houston back in 2024, as well as by Octavian during a DJ set later that same year.",
+      "source": {
+        "song_id": 10820605,
+        "field": "description"
+      },
+      "options": [
+        "After Kendrick Lamar’s concert in Toronto, reports and viral videos showed him leaving the venue with an unusually large police and security convoy (about 25 to 30 vehicles) and…",
+        "“Able” is a homonym for “Abel,” the first name of R&B artist The Weeknd, who was once heavily endorsed by Drake when he was breaking into the music business.",
+        "“BPM” stands for beats per minute, the tempo measurement every producer works with. Drake is saying he’d rough up a producer mid-session asking about the technical specs of a beat.",
+        "“Plot Twist” was first previewed during Drake’s birthday party in Houston back in 2024, as well as by Octavian during a DJ set later that same year."
+      ],
+      "answer_index": 3
+    }
+  ]
+}

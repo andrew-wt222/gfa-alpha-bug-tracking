@@ -1,0 +1,110 @@
+{
+  "song_id": 13560184,
+  "song_title": "Make Them Pay",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-make-them-pay-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Dog, I was aidin’ Ross with streams before Adin Ross had ever streamed”, what is Drake getting at?",
+      "explanation": "Drake takes a shot at rapper Rick Ross over their fallout during the 2024 feud involving Kendrick Lamar.",
+      "source": {
+        "annotation_id": 39776012,
+        "referent_id": 39776012,
+        "annotation_url": "https://genius.com/39776012/Drake-make-them-pay/Dog-i-was-aidin-ross-with-streams-before-adin-ross-had-ever-streamed",
+        "verified": false,
+        "votes_total": 76,
+        "mixpanel_opens": 39529
+      },
+      "options": [
+        "Drake takes a shot at rapper Rick Ross over their fallout during the 2024 feud involving Kendrick Lamar.",
+        "Serafina is a popular Italian restaurant chain in New York City, known for pasta dishes like lobster ravioli.",
+        "Wilhelmina Models is a popular modeling agency based in New York City with satellite offices in places like Los Angeles, Miami, and London.",
+        "The track is built over a sample of Deniece Williams‘ 1976 soul hit, “Free.” https://youtu.be/OlLrn6AVV2s?si=ZEIm15NfC5Ff1wK_&t=123 Drake uses it as a plea for release, whether…"
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Fuck a big three anyway, there was too many chefs in the kitchen, it was a mess to begin with, yeah\n And now they got a new GOAT and we gotta test the position”, what is Drake getting at?",
+      "explanation": "The “Big Three” was a title the hip-hop culture celebrated for the better part of a decade crowning Drake, Kendrick Lamar and J.",
+      "source": {
+        "annotation_id": 39775863,
+        "referent_id": 39775863,
+        "annotation_url": "https://genius.com/39775863/Drake-make-them-pay/Fuck-a-big-three-anyway-there-was-too-many-chefs-in-the-kitchen-it-was-a-mess-to-begin-with-yeah-and-now-they-got-a-new-goat-and-we-gotta-test-the-position",
+        "verified": false,
+        "votes_total": 75,
+        "mixpanel_opens": 37598
+      },
+      "options": [
+        "In December 2009, three-time NBA All-Star Gilbert Arenas brought unloaded firearms into the Washington Wizards' locker room during a dispute with teammate Javaris Crittenton over…",
+        "Michael Jordan owns a private, ultra-luxury estate in the Bahamas. While not sharing a border, Lebanon and Jordan are neighboring countries in the Levant.",
+        "The “Big Three” was a title the hip-hop culture celebrated for the better part of a decade crowning Drake, Kendrick Lamar and J.",
+        "References the common rap idea of artists “selling their soul,” with Drake playing on the homonym of “sailing” through the seven seas."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Yeah, look\n Albany Marina, they done served us a hundred subpoenas”, what is Drake getting at?",
+      "explanation": "Located on the southwestern coast of The Bahamas' New Providence Island, Albany Marina is a premier mega-yacht facility.",
+      "source": {
+        "annotation_id": 39776678,
+        "referent_id": 39776678,
+        "annotation_url": "https://genius.com/39776678/Drake-make-them-pay/Yeah-look-albany-marina-they-done-served-us-a-hundred-subpoenas",
+        "verified": false,
+        "votes_total": 17,
+        "mixpanel_opens": 30772
+      },
+      "options": [
+        "Vladimir Putin is a Russian intelligence officer who has served as the country’s president since 2012. He’s considered one of the most powerful leaders of the 21st century.",
+        "Located on the southwestern coast of The Bahamas' New Providence Island, Albany Marina is a premier mega-yacht facility.",
+        "“Am I my brother’s keeper?” is a phrase that originated from the Biblical story of Cain and Abel—specifically Genesis 4:9—where Cain responds to God after murdering his brother…",
+        "In little league baseball, kids tend to easily get distracted in the outfield—“stargazing”—which tends to lead to a missed opportunity for a play to be made."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “The Hazelton Hotel is a five-star luxury hotel located in the prestigious Yorkville neighborhood of Toronto, Canada and ONE Restaurant is a fine dining establishment located…”",
+      "explanation": "The Hazelton Hotel is a five-star luxury hotel located in the prestigious Yorkville neighborhood of Toronto, Canada and ONE Restaurant is a fine dining establishment located…",
+      "source": {
+        "annotation_id": 39776433,
+        "referent_id": 39776433,
+        "annotation_url": "https://genius.com/39776433/Drake-make-them-pay/I-was-in-hazelton-at-the-one-before-i-was-in-the-loop-like-a-set-of-keys",
+        "verified": false,
+        "votes_total": 9,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "I was in Hazelton at the One before I was in the Loop like a set of keys",
+        "I rack up a tab in Chanel ’cause I do buy everything like I’m Middle Eastern",
+        "Yeah, look\n Albany Marina, they done served us a hundred subpoenas",
+        "Fuck a big three anyway, there was too many chefs in the kitchen, it was a mess to begin with, yeah\n And now they got a new GOAT and we gotta test the position"
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Make Them Pay” about?",
+      "explanation": "Built around a pitched-up sample of Deniece Williams‘ 1976 soul hit “Free,” “Make Them Pay” has Drake reflecting on his 2024 battle with Kendrick Lamar.",
+      "source": {
+        "song_id": 13560184,
+        "field": "description"
+      },
+      "options": [
+        "This line references the 1999 horror film The Sixth Sense, which explores the story of Cole Sear (portrayed by Haley Joel Osment), a troubled child, is gifted with a unique power…",
+        "Built around a pitched-up sample of Deniece Williams‘ 1976 soul hit “Free,” “Make Them Pay” has Drake reflecting on his 2024 battle with Kendrick Lamar.",
+        "This could be a dig at Kanye West. In 2025, Kanye claimed he was a billionaire again, estimating his net worth to be $2.77 billion.",
+        "In 2009, Drake broke out with the release of his mixtape, So Far Gone. Its' lead single, “Best I Ever Had,” was a commercial success, peaking at #2 on the Billboard Hot 100 charts."
+      ],
+      "answer_index": 1
+    }
+  ]
+}

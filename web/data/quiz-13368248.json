@@ -1,0 +1,110 @@
+{
+  "song_id": 13368248,
+  "song_title": "drop dead",
+  "artist": "Olivia Rodrigo",
+  "song_url": "https://genius.com/Olivia-rodrigo-drop-dead-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Pisces and a Gemini\n But I think we might go really nice together”, what is Olivia Rodrigo getting at?",
+      "explanation": "Olivia was born on February 20, 2003, making her a Pisces. She likely wrote this song about her boyfriend, Louis Partridge, who was born on June 3, 2003, making him a Gemini.",
+      "source": {
+        "annotation_id": 39407413,
+        "referent_id": 39407413,
+        "annotation_url": "https://genius.com/39407413/Olivia-rodrigo-drop-dead/Pisces-and-a-gemini-but-i-think-we-might-go-really-nice-together",
+        "verified": false,
+        "votes_total": 88,
+        "mixpanel_opens": 87647
+      },
+      "options": [
+        "Eurostar is an international high-speed rail service in European countries such as France, England and Germany.",
+        "Olivia uses “stalked” in a way to describe checking up on a person online, usually through social media profiles.",
+        "These lines paint a picture of Olivia and her crush hanging out together at a bar during their first date.",
+        "Olivia was born on February 20, 2003, making her a Pisces. She likely wrote this song about her boyfriend, Louis Partridge, who was born on June 3, 2003, making him a Gemini."
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “You’re lookin’ like an angel on the walls of Versailles”, what is Olivia Rodrigo getting at?",
+      "explanation": "The Palace of Versailles is a former royal palace located in France.",
+      "source": {
+        "annotation_id": 39407446,
+        "referent_id": 39407446,
+        "annotation_url": "https://genius.com/39407446/Olivia-rodrigo-drop-dead/Youre-lookin-like-an-angel-on-the-walls-of-versailles",
+        "verified": false,
+        "votes_total": 78,
+        "mixpanel_opens": 65789
+      },
+      "options": [
+        "Rodrigo subtly weaves in a self-referential nod to her sophomore album GUTS, adding an extra layer of meaning for listeners familiar with her discography.",
+        "The Palace of Versailles is a former royal palace located in France.",
+        "‘Dropping hints’ is a common colloquialism that means to suggest something indirectly instead of saying it outright.",
+        "“Feminine intuition” is generally used to describe how a woman can always tell when something is meant to be, or when something is wrong."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “You know all the words to “Just Like Heaven”\n And I know why he wrote them now that you’re standin’ right here”, what is Olivia Rodrigo getting at?",
+      "explanation": "In this part, Olivia references “Just Like Heaven,” the 1987 track by The Cure, which she performed live at Glastonbury with Robert Smith in June 2025.",
+      "source": {
+        "annotation_id": 39407376,
+        "referent_id": 39407376,
+        "annotation_url": "https://genius.com/39407376/Olivia-rodrigo-drop-dead/You-know-all-the-words-to-just-like-heaven-and-i-know-why-he-wrote-them-now-that-youre-standin-right-here",
+        "verified": false,
+        "votes_total": 95,
+        "mixpanel_opens": 65514
+      },
+      "options": [
+        "Rodrigo’s first tour in Japan was during her GUTS on September 27 and 28 in Tokyo.",
+        "This line was teased across various billboards prior to the song’s release.",
+        "Rodrigo loves using the word ‘boy’ to refer to her lover, or ex-lover. This song is no different.",
+        "In this part, Olivia references “Just Like Heaven,” the 1987 track by The Cure, which she performed live at Glastonbury with Robert Smith in June 2025."
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “Rodrigo loves using the word ‘boy’ to refer to her lover, or ex-lover. This song is no different.”",
+      "explanation": "Rodrigo loves using the word ‘boy’ to refer to her lover, or ex-lover. This song is no different.",
+      "source": {
+        "annotation_id": 39449101,
+        "referent_id": 39449101,
+        "annotation_url": "https://genius.com/39449101/Olivia-rodrigo-drop-dead/Youre-so-so-pretty-boy",
+        "verified": false,
+        "votes_total": 15,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "It’s feminine intuition",
+        "You’re so, so pretty, boy",
+        "Or taken that Eurostar to France?",
+        "Yeah, I’d love it if you walked me home\n If you promise, we can go real slow"
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “drop dead” about?",
+      "explanation": "“drop dead” is the lead single from Olivia Rodrigo’s third studio album, you seem pretty sad for a girl so in love.",
+      "source": {
+        "song_id": 13368248,
+        "field": "description"
+      },
+      "options": [
+        "“drop dead” is the lead single from Olivia Rodrigo’s third studio album, you seem pretty sad for a girl so in love.",
+        "Rodrigo wants this relationship not to simply be a passionate one-night stand, instead desiring something that lasts longer and is more intimate.",
+        "This line was teased across various billboards prior to the song’s release.",
+        "Olivia uses the hyperbolic dichotomy of life and death to describe the overwhelming excitement and love she is experiencing."
+      ],
+      "answer_index": 0
+    }
+  ]
+}

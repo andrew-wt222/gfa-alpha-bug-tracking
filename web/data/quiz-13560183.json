@@ -1,0 +1,110 @@
+{
+  "song_id": 13560183,
+  "song_title": "Shabang",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-shabang-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Maneesh on the beat, shabang (Woo)”, what is Drake getting at?",
+      "explanation": "Maneesh Bidaye is a Canadian record producer, songwriter, and multi-instrumentalist from Toronto.",
+      "source": {
+        "annotation_id": 39779022,
+        "referent_id": 39779022,
+        "annotation_url": "https://genius.com/39779022/Drake-shabang/Maneesh-on-the-beat-shabang-woo",
+        "verified": false,
+        "votes_total": 36,
+        "mixpanel_opens": 51278
+      },
+      "options": [
+        "Drake has shared similar sentiments about handling his enemies with violence all the way back to his August 2011 track, “Headlines”: You gon' hype me up and make me catch a body…",
+        "A callback to the main argument Drake made on “The Heart PART 6,” that everything Kendrick Lamar deployed during the beef was fiction while Drake’s raps, in his telling, deal…",
+        "“Catch a hat” means to murder somebody, an “extendo” is an extended magazine—an attachment that allows for more rounds than a standard magazine and a “switch” is a gun.",
+        "Maneesh Bidaye is a Canadian record producer, songwriter, and multi-instrumentalist from Toronto."
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Last one you dropped was shit\n I did press play on that ho\n Mid, mid, mid, skip, skip”, what is Drake getting at?",
+      "explanation": "Drake is taking shots at two albums—Kendrick Lamar’s GNX and A$AP Rocky’s Don’t Be Dumb.",
+      "source": {
+        "annotation_id": 39776054,
+        "referent_id": 39776054,
+        "annotation_url": "https://genius.com/39776054/Drake-shabang/Last-one-you-dropped-was-shit-i-did-press-play-on-that-ho-mid-mid-mid-skip-skip",
+        "verified": false,
+        "votes_total": 84,
+        "mixpanel_opens": 40486
+      },
+      "options": [
+        "This is a nod to 21 Savage and his December 2018 song, “a lot.” On the chorus, he raps: How much money you got?",
+        "Drake is taking shots at two albums—Kendrick Lamar’s GNX and A$AP Rocky’s Don’t Be Dumb.",
+        "On his June 2022 track “Texts Go Green,” Drake dismisses an ex of his in similar fashion to what he does here: Texts go green, it hits a little different, don’t it?",
+        "“GOAT” is an acronym for the “Greatest Of All Time”—something Drake has called himself on different occasions."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Don’t leave again, I won’t\n Thinkin’ of tryin’ me, do like Bryson, pussy-ass nigga, then don’t”, what is Drake getting at?",
+      "explanation": "Another song reference—this time, it’s R&B artist Bryson Tiller and his May 2015 hit single, “Don’t.” On the song, Tiller talks about a girl who’s in a poor relationship and how…",
+      "source": {
+        "annotation_id": 39784920,
+        "referent_id": 39784920,
+        "annotation_url": "https://genius.com/39784920/Drake-shabang/Dont-leave-again-i-wont-thinkin-of-tryin-me-do-like-bryson-pussy-ass-nigga-then-dont",
+        "verified": false,
+        "votes_total": 48,
+        "mixpanel_opens": 35389
+      },
+      "options": [
+        "Polymarket is a prediction market platform where users trade on the outcomes of real-world events.",
+        "In November 2025, Drake and Sexyy Red went viral after sharing a tennis-themed photoshoot on Instagram that sparked collaboration rumors and social media controversy.",
+        "His “What Did I Miss?” debuted at No. 2 on the Billboard Hot 100 in July 2025, blocked from the top spot by Alex Warren’s “Ordinary.” By October 2025, for the first time since…",
+        "Another song reference—this time, it’s R&B artist Bryson Tiller and his May 2015 hit single, “Don’t.” On the song, Tiller talks about a girl who’s in a poor relationship and how…"
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “This is a nod to 21 Savage and his December 2018 song, “a lot.” On the chorus, he raps: How much money you got?”",
+      "explanation": "This is a nod to 21 Savage and his December 2018 song, “a lot.” On the chorus, he raps: How much money you got?",
+      "source": {
+        "annotation_id": 39776222,
+        "referent_id": 39776222,
+        "annotation_url": "https://genius.com/39776222/Drake-shabang/How-much-i-got-a-lot",
+        "verified": false,
+        "votes_total": 56,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "Tennis lessons with a Nike skirt on and her ass poppin’ out, you’re sick (She bad)",
+        "What’s in my raps? It’s facts",
+        "How much I got? A lot",
+        "Maneesh on the beat, shabang (Woo)"
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Shabang” about?",
+      "explanation": "On “Shabang,” Drakes flexes his motion as a mob boss. If his opposition continues to mess with him, he will order them a deadly fate.",
+      "source": {
+        "song_id": 13560183,
+        "field": "description"
+      },
+      "options": [
+        "Polymarket is a prediction market platform where users trade on the outcomes of real-world events.",
+        "On “Shabang,” Drakes flexes his motion as a mob boss. If his opposition continues to mess with him, he will order them a deadly fate.",
+        "“GOAT” is an acronym for the “Greatest Of All Time”—something Drake has called himself on different occasions.",
+        "“Catch a hat” means to murder somebody, an “extendo” is an extended magazine—an attachment that allows for more rounds than a standard magazine and a “switch” is a gun."
+      ],
+      "answer_index": 1
+    }
+  ]
+}

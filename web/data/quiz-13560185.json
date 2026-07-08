@@ -1,0 +1,110 @@
+{
+  "song_id": 13560185,
+  "song_title": "Whisper My Name",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-whisper-my-name-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “If I’m lyin’, I’m flyin’ economy, give me a motherfuckin’ seat\n If I’m lyin’, I’m flyin’ economy, I bet I know who I see”, what is Drake getting at?",
+      "explanation": "In reality, Drake is almost certainly not flying economy, dude owns a customized Boeing 767-300F private jet, known as “Air Drake,” valued at roughly $185 million.",
+      "source": {
+        "annotation_id": 39785044,
+        "referent_id": 39785044,
+        "annotation_url": "https://genius.com/39785044/Drake-whisper-my-name/If-im-lyin-im-flyin-economy-give-me-a-motherfuckin-seat-if-im-lyin-im-flyin-economy-i-bet-i-know-who-i-see",
+        "verified": false,
+        "votes_total": 49,
+        "mixpanel_opens": 33866
+      },
+      "options": [
+        "Louis Farrakhan is a prominent American religious leader, activist, and the longtime head of the Nation of Islam (NOI), a Black nationalist and religious organization.",
+        "In reality, Drake is almost certainly not flying economy, dude owns a customized Boeing 767-300F private jet, known as “Air Drake,” valued at roughly $185 million.",
+        "“YGs” is slang for Young Gangsters. Drake is saying his people are on a leash right now, and the only reason is God.",
+        "“GOAT” is an acronym for the “Greatest Of All Time.” Drake is calling out those who turned on him after the 2024 rap civil war against Kendrick Lamar and the intense industry…"
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Whisper my name and don’t say it too loud\n ’Cause you gotta come here and you know I pop out”, what is Drake getting at?",
+      "explanation": "During the peak of their 2024 feud, Kendrick Lamar hosted a massive Juneteenth concert in Los Angeles called Pop Out: Ken & Friends concert.",
+      "source": {
+        "annotation_id": 39776316,
+        "referent_id": 39776316,
+        "annotation_url": "https://genius.com/39776316/Drake-whisper-my-name/Whisper-my-name-and-dont-say-it-too-loud-cause-you-gotta-come-here-and-you-know-i-pop-out",
+        "verified": false,
+        "votes_total": 38,
+        "mixpanel_opens": 32234
+      },
+      "options": [
+        "During the peak of their 2024 feud, Kendrick Lamar hosted a massive Juneteenth concert in Los Angeles called Pop Out: Ken & Friends concert.",
+        "“Crodie” is Crip slang for brother as it alters the word “Brodie,” replacing the B for a C. It’s a widely used term in Drake’s hometown of Toronto.",
+        "In the sport of tennis, a score of zero is called “love.” When you hit a tennis ball into the net, the play stops and you don’t score any points.",
+        "Universal Music Group (a label led by white executives) had to “go white label” on Kendrick Lamar, rebranding him as a hotter, marketable star during the 2024 beef."
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “We turnt up Coachella, had boys backin’ down\n And we might do the same if we touch Rolling Loud”, what is Drake getting at?",
+      "explanation": "Drake notably headlined the Coachella Valley Music & Arts Festival in April 2015, featuring a surprise appearance and viral kiss from Madonna, as well as a subsequent cameo from…",
+      "source": {
+        "annotation_id": 39781277,
+        "referent_id": 39781277,
+        "annotation_url": "https://genius.com/39781277/Drake-whisper-my-name/We-turnt-up-coachella-had-boys-backin-down-and-we-might-do-the-same-if-we-touch-rolling-loud",
+        "verified": false,
+        "votes_total": 38,
+        "mixpanel_opens": 30982
+      },
+      "options": [
+        "These lines are likely directed at Playboi Carti, who goes by the nickname “Baby Boi.” While Carti didn’t speak on the 2024 beef, he did quietly aligned himself with Kendrick…",
+        "Reference to the popular debate “Dinner with JAY-Z or $500,000,” where a dinner with him is seen as potentially offering life-changing advice worth more than the money.",
+        "Drake notably headlined the Coachella Valley Music & Arts Festival in April 2015, featuring a surprise appearance and viral kiss from Madonna, as well as a subsequent cameo from…",
+        "“Bimmer” (pronounced BIM-er) is a slang for a BMW automobile. Drake’s generosity toward his inner circle is almost nonsensical."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “Comic-Con is a massive annual convention where fans gather and participate in cosplay.”",
+      "explanation": "Comic-Con is a massive annual convention where fans gather and participate in cosplay.",
+      "source": {
+        "annotation_id": 39776095,
+        "referent_id": 39776095,
+        "annotation_url": "https://genius.com/39776095/Drake-whisper-my-name/These-boys-dress-up-and-think-that-they-somebody-shit-is-like-comic-con",
+        "verified": false,
+        "votes_total": 18,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "Yeah, my brother said he want a blue Bim’, I’ma get him one",
+        "These boys dress up and think that they somebody, shit is like Comic-Con",
+        "If I’m lyin’, I’m flyin’ economy, give me a motherfuckin’ seat\n If I’m lyin’, I’m flyin’ economy, I bet I know who I see",
+        "My honor comes from the shit that I do for the ones that I love, it’s between ’em and I\n Your honor comes to the court and he offers a plea deal so that you could cut off some time"
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Whisper My Name” about?",
+      "explanation": "“Whisper My Name” continues ICEMAN’s theme of Drake dismissing his opposition.",
+      "source": {
+        "song_id": 13560185,
+        "field": "description"
+      },
+      "options": [
+        "“Ashes to ashes, dust to dust” is a common phrase spoken at funerals that reminds mourners that the body returns to the earth it came from.",
+        "“Whisper My Name” continues ICEMAN’s theme of Drake dismissing his opposition.",
+        "Comic-Con is a massive annual convention where fans gather and participate in cosplay.",
+        "Drake’s “honor” is personal and private, it comes from the things he does behind closed doors that never make it to the public’s eyes."
+      ],
+      "answer_index": 1
+    }
+  ]
+}

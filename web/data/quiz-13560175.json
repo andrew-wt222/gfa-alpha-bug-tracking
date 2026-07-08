@@ -1,8 +1,10 @@
 {
   "song_id": 13560175,
-  "song_title": "Midnight Getaway (Demo Fixture)",
-  "artist": "The Understudy",
-  "song_url": "https://genius.com/The-understudy-midnight-getaway-lyrics",
+  "song_title": "Janice STFU",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-janice-stfu-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
   "generated_from": {
     "genius": "referents + song description",
     "mixpanel": "song:open_annotation opens (project 446209)"
@@ -10,99 +12,99 @@
   "questions": [
     {
       "type": "meaning",
-      "prompt": "In the line “I left the porch light on so the house could pretend”, what is The Understudy getting at?",
-      "explanation": "The porch light is a classic symbol of waiting for someone to come home.",
+      "prompt": "In the line “(Ayy, Janice, shut the fuck up)”, what is Drake getting at?",
+      "explanation": "“Janice” is Joe Budden. The name traces back to a resurfaced clip from Budden’s own show where he asked a co-host for their “white woman name” and revealed his was Janice.",
       "source": {
         "annotation_id": 39776494,
-        "referent_id": 90001,
-        "annotation_url": "https://genius.com/39776494",
+        "referent_id": 39776494,
+        "annotation_url": "https://genius.com/39776494/Drake-janice-stfu/Ayy-janice-shut-the-fuck-up",
         "verified": false,
-        "votes_total": 41,
+        "votes_total": 128,
         "mixpanel_opens": 90548
       },
       "options": [
-        "The porch light is a classic symbol of waiting for someone to come home.",
-        "The album’s thesis line, and the source of the artist’s stage name.",
-        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories.",
-        "She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch."
+        "The perfectionism Drake documents across his catalog — nodded to as far back as “Tuscan Leather”— eventually caught up with him, as he works long hours and puts an enormous…",
+        "“Janice” is Joe Budden. The name traces back to a resurfaced clip from Budden’s own show where he asked a co-host for their “white woman name” and revealed his was Janice.",
+        "Rick Ross is the most visible example.",
+        "Drake is flexing his spending habits, as if money is a renewable natural resource that replenishes itself endlessly."
       ],
-      "answer_index": 0
+      "answer_index": 1
     },
     {
       "type": "meaning",
-      "prompt": "In the line “Packed the rearview full of everything I couldn't say”, what is The Understudy getting at?",
-      "explanation": "A verified line-note from the artist: the “rearview” holds the unsaid goodbyes.",
+      "prompt": "In the line “Reach me, baby\n Call my phone and say you need me, baby”, what is Drake getting at?",
+      "explanation": "Drake interpolates the melody and cadence of Lykke Li’s “I Follow Rivers” chorus: I-I follow, I follow you, deep sea baby While the original expresses obsessive devotion and…",
       "source": {
         "annotation_id": 39782267,
-        "referent_id": 90002,
-        "annotation_url": "https://genius.com/39782267",
-        "verified": true,
-        "votes_total": 66,
+        "referent_id": 39782267,
+        "annotation_url": "https://genius.com/39782267/Drake-janice-stfu/Reach-me-baby-call-my-phone-and-say-you-need-me-baby",
+        "verified": false,
+        "votes_total": 46,
         "mixpanel_opens": 80091
       },
       "options": [
-        "The sunrise lands as an ovation — the theater metaphor resolving.",
-        "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew.",
-        "A verified line-note from the artist: the “rearview” holds the unsaid goodbyes.",
-        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories."
+        "Kai Bent-Lee is a Canadian entrepreneur, influencer, and the son of legendary Toronto chef Susur Lee. He and Drake are great friends and business partners.",
+        "Drake interpolates the melody and cadence of Lykke Li’s “I Follow Rivers” chorus: I-I follow, I follow you, deep sea baby While the original expresses obsessive devotion and…",
+        "A “kilt” is a Scottish garment for men, similar to a skirt for women, Drake compares it to “skrrting” (skirt) as in a Ferrari car drifting.",
+        "In December 2025, Drake surprised streamer BenDaDonnn with a fully customized, blacked-out Mansory Rolls-Royce Spectre during a Stake livestream on Kick."
       ],
-      "answer_index": 2
+      "answer_index": 1
     },
     {
       "type": "meaning",
-      "prompt": "In the line “Gas station coffee tastes like being seventeen”, what is The Understudy getting at?",
-      "explanation": "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew.",
+      "prompt": "In the line “I’m so green, you gotta teach me, baby\n From Vancouver, you a BC baby”, what is Drake getting at?",
+      "explanation": "Vancouver is a city in Drake’s home country, Canada. “BC” stands for British Columbia, the Canadian province where Vancouver is located.",
       "source": {
         "annotation_id": 39776463,
-        "referent_id": 90003,
-        "annotation_url": "https://genius.com/39776463",
+        "referent_id": 39776463,
+        "annotation_url": "https://genius.com/39776463/Drake-janice-stfu/Im-so-green-you-gotta-teach-me-baby-from-vancouver-you-a-bc-baby",
         "verified": false,
-        "votes_total": 38,
+        "votes_total": 54,
         "mixpanel_opens": 78156
       },
       "options": [
-        "The sunrise lands as an ovation — the theater metaphor resolving.",
-        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories.",
-        "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew.",
-        "Each mile marker reads like a debt statement: guilt about her mother, the deposit on the apartment, the friends she is ghosting."
+        "The “Drake Stimulus Package” is a well-known music industry phenomenon describing the massive career boost that artists receive when Drake features them or hop on their track.",
+        "Drake plays on the phrase “karma takes an eternity” by claiming he is the karma or rather, his new music is.",
+        "The argument is one that has circulated in hip-hop forums long before this beef; that a significant portion of Kendrick’s white audience engages with his music not purely on…",
+        "Vancouver is a city in Drake’s home country, Canada. “BC” stands for British Columbia, the Canadian province where Vancouver is located."
       ],
-      "answer_index": 2
+      "answer_index": 3
     },
     {
       "type": "reverse",
-      "prompt": "Deep cut: this explanation is about which lyric? — “She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch.”",
-      "explanation": "She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch.",
+      "prompt": "Deep cut: this explanation is about which lyric? — “Drake has spent years building genuine ties to UK rap culture through collaborations with artists like Central Cee and Skepta, and the city has become one of his closest cultural…”",
+      "explanation": "Drake has spent years building genuine ties to UK rap culture through collaborations with artists like Central Cee and Skepta, and the city has become one of his closest cultural…",
       "source": {
-        "annotation_id": 39774966,
-        "referent_id": 90008,
-        "annotation_url": "https://genius.com/39774966",
+        "annotation_id": 39784020,
+        "referent_id": 39784020,
+        "annotation_url": "https://genius.com/39784020/Drake-janice-stfu/And-i-might-book-a-flight-out-to-london",
         "verified": false,
-        "votes_total": 26,
-        "mixpanel_opens": 48769
+        "votes_total": 12,
+        "mixpanel_opens": 0
       },
       "options": [
-        "Kept the map folded to the page with no roads",
-        "Dawn hit the windshield like applause",
-        "I was the understudy in a play I wrote myself",
-        "I left the porch light on so the house could pretend"
+        "MRI machine scannin’ my knee\n Like how long you been runnin’ the streets? For real, yeah",
+        "Kept it a hundred on paper like Wilt",
+        "They say the truth will set you free, well, mine is gon’ stream while you watch in HD",
+        "And I might book a flight out to London"
       ],
-      "answer_index": 0
+      "answer_index": 3
     },
     {
       "type": "song_meaning",
-      "prompt": "Big picture: what is “Midnight Getaway (Demo Fixture)” about?",
-      "explanation": "“Midnight Getaway” is the album’s emotional centerpiece, written the night the narrator decided to leave her hometown for good.",
+      "prompt": "Big picture: what is “Janice STFU” about?",
+      "explanation": "“Janice STFU” is an aggressive cut from ICEMAN that continues Drake’s attack on the haters and the industry.",
       "source": {
         "song_id": 13560175,
         "field": "description"
       },
       "options": [
-        "“Midnight Getaway” is the album’s emotional centerpiece, written the night the narrator decided to leave her hometown for good.",
-        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories.",
-        "Each mile marker reads like a debt statement: guilt about her mother, the deposit on the apartment, the friends she is ghosting.",
-        "The album’s thesis line, and the source of the artist’s stage name."
+        "Drake has had multiple knee injuries, most recently in 2020 when he underwent surgery to repair a torn meniscus, which delayed his Certified Lover Boy project’s release until 2021.",
+        "“Janice STFU” is an aggressive cut from ICEMAN that continues Drake’s attack on the haters and the industry.",
+        "Drake is questioning the weight and sincerity of Kendrick Lamar’s community engagement, basically saying that the distance is real when it comes to his connection with his…",
+        "Drake has spent years building genuine ties to UK rap culture through collaborations with artists like Central Cee and Skepta, and the city has become one of his closest cultural…"
       ],
-      "answer_index": 0
+      "answer_index": 1
     }
   ]
 }

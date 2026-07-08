@@ -1,0 +1,110 @@
+{
+  "song_id": 13560203,
+  "song_title": "Burning Bridges",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-burning-bridges-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “I put you niggas through the wringer, yeah\n You gettin’ bodied by a singin’ nigga, yeah”, what is Drake getting at?",
+      "explanation": "Drake calls back to his iconic line on his July 2015 Meek Mill diss track “Back to Back,” which was in response to Meek accusing Drake of using ghostwriters on Twitter: Yeah…",
+      "source": {
+        "annotation_id": 39776253,
+        "referent_id": 39776253,
+        "annotation_url": "https://genius.com/39776253/Drake-burning-bridges/I-put-you-niggas-through-the-wringer-yeah-you-gettin-bodied-by-a-singin-nigga-yeah",
+        "verified": false,
+        "votes_total": 52,
+        "mixpanel_opens": 64149
+      },
+      "options": [
+        "Drake is spilling the tea on why things never fully worked out between him and Rihanna, they were romantically linked on and off for the better part of a decade.",
+        "Drake calls back to his iconic line on his July 2015 Meek Mill diss track “Back to Back,” which was in response to Meek accusing Drake of using ghostwriters on Twitter: Yeah…",
+        "G-Block is a reference to the Galloway corridor in Scarborough.",
+        "Of everyone Drake targets on ICEMAN, A$AP Rockyearned his place by coming at Drake on three separate tracks across Don’t Be Dumb."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “I’m with Noel like I’m Kris Kringle, yeah”, what is Drake getting at?",
+      "explanation": "Noel Cadastre is Drake’s friend and an OVO sound engineer.",
+      "source": {
+        "annotation_id": 39777619,
+        "referent_id": 39777619,
+        "annotation_url": "https://genius.com/39777619/Drake-burning-bridges/Im-with-noel-like-im-kris-kringle-yeah",
+        "verified": false,
+        "votes_total": 43,
+        "mixpanel_opens": 49680
+      },
+      "options": [
+        "Noel Cadastre is Drake’s friend and an OVO sound engineer.",
+        "Drake is signaling that his history with Rihanna and , her half-sister, Samantha is the only reason A$AP Rocky is walking away from this with just a diss record.",
+        "“sleeping with the fishes” is a Mafia euphemism for a murder victim dumped into a body of water, weighted down and left to sink, popularized by Francis Ford Coppola’s 1972 The…",
+        "“Quay” is a street name/slang term for Quaaludes (methaqualone,) a sedative-hypnotic medication that commonly produce euphoria and relaxation."
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “You saw my brother, you was tryna fix it\n Now you drop your album and you back dissin’, yeah”, what is Drake getting at?",
+      "explanation": "This likely refers to A$AP Rocky. In his interview with Akademiks, he briefly talks about how things became tense between him and Drake.",
+      "source": {
+        "annotation_id": 39776212,
+        "referent_id": 39776212,
+        "annotation_url": "https://genius.com/39776212/Drake-burning-bridges/You-saw-my-brother-you-was-tryna-fix-it-now-you-drop-your-album-and-you-back-dissin-yeah",
+        "verified": false,
+        "votes_total": 55,
+        "mixpanel_opens": 41839
+      },
+      "options": [
+        "Capo is the nickname of Nessel Chubbs\" Beezer, Drake’s best friend, head of security, and an OVO member.",
+        "This likely refers to A$AP Rocky. In his interview with Akademiks, he briefly talks about how things became tense between him and Drake.",
+        "“sleeping with the fishes” is a Mafia euphemism for a murder victim dumped into a body of water, weighted down and left to sink, popularized by Francis Ford Coppola’s 1972 The…",
+        "Drake is spilling the tea on why things never fully worked out between him and Rihanna, they were romantically linked on and off for the better part of a decade."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “G-Block is a reference to the Galloway corridor in Scarborough.”",
+      "explanation": "G-Block is a reference to the Galloway corridor in Scarborough.",
+      "source": {
+        "annotation_id": 39828568,
+        "referent_id": 39828568,
+        "annotation_url": "https://genius.com/39828568/Drake-burning-bridges/We-g-block-babies-we-are-not-musicians",
+        "verified": false,
+        "votes_total": 21,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "We G-block babies, we are not musicians",
+        "So I told Capo we can’t burn them bridges, yeah",
+        "I put you niggas through the wringer, yeah\n You gettin’ bodied by a singin’ nigga, yeah",
+        "I’m with Noel like I’m Kris Kringle, yeah"
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Burning Bridges” about?",
+      "explanation": "As the eighth track on ICEMAN, “Burning Bridges” is split into two different halves.",
+      "source": {
+        "song_id": 13560203,
+        "field": "description"
+      },
+      "options": [
+        "As the eighth track on ICEMAN, “Burning Bridges” is split into two different halves.",
+        "G-Block is a reference to the Galloway corridor in Scarborough.",
+        "Capo is the nickname of Nessel Chubbs\" Beezer, Drake’s best friend, head of security, and an OVO member.",
+        "Drake is signaling that his history with Rihanna and , her half-sister, Samantha is the only reason A$AP Rocky is walking away from this with just a diss record."
+      ],
+      "answer_index": 0
+    }
+  ]
+}

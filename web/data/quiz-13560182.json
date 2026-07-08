@@ -1,0 +1,110 @@
+{
+  "song_id": 13560182,
+  "song_title": "2 Hard 4 The Radio",
+  "artist": "Drake",
+  "song_url": "https://genius.com/Drake-2-hard-4-the-radio-lyrics",
+  "review_status": "unreviewed",
+  "fixture": false,
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “Mustard heard about us, gotta catch up to the slaps\n You ain’t had one since me and YG rapped”, what is Drake getting at?",
+      "explanation": "This is a diss aimed at producer Mustard.",
+      "source": {
+        "annotation_id": 39776468,
+        "referent_id": 39776468,
+        "annotation_url": "https://genius.com/39776468/Drake-2-hard-4-the-radio/Mustard-heard-about-us-gotta-catch-up-to-the-slaps-you-aint-had-one-since-me-and-yg-rapped",
+        "verified": false,
+        "votes_total": 77,
+        "mixpanel_opens": 36144
+      },
+      "options": [
+        "Drake ties him rapping on a west coast beat with the Pacific-10, an NCAA Power Five conference on the west coast of the United States that stood from 1978-2011 before expanding…",
+        "This is a diss aimed at producer Mustard.",
+        "A nod to “POPSTAR,” Drake’s 2020 collaboration with DJ Khaled.",
+        "Drake references his close friend Nadia Ntuli, who died in an ATV accident in 2021."
+      ],
+      "answer_index": 1
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Damn, y’all was really island hoppin’ back then\n Huh, now y’all names got redacted\n Yeah, now a nigga gotta fact check, what?”, what is Drake getting at?",
+      "explanation": "The island in question is the Little St. James island (infamously nicknamed the Epstein Island,) the center of the Jeffrey Epstein’s trafficking operation.",
+      "source": {
+        "annotation_id": 39776596,
+        "referent_id": 39776596,
+        "annotation_url": "https://genius.com/39776596/Drake-2-hard-4-the-radio/Damn-yall-was-really-island-hoppin-back-then-huh-now-yall-names-got-redacted-yeah-now-a-nigga-gotta-fact-check-what",
+        "verified": false,
+        "votes_total": 102,
+        "mixpanel_opens": 32981
+      },
+      "options": [
+        "“Real town smacks” is a nod to Oakland, The Town or Real Town being one of the city’s nicknames. Drake’s Bay Area connection runs older than most people realize.",
+        "Drake samples SWV for the first part of the track, a noteworthy choice given Kendrick Lamar’s use of the group’s music on “heart pt. 6” off GNX.",
+        "This is a response to Kendrick Lamar’s “Not Like Us,” where Kendrick says: I think that Oakland show gon' be your last stop, nigga Drake is basically saying he can still perform…",
+        "The island in question is the Little St. James island (infamously nicknamed the Epstein Island,) the center of the Jeffrey Epstein’s trafficking operation."
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Need to call up a Stark for some Chrome Hearts”, what is Drake getting at?",
+      "explanation": "Drake is flexing here, claiming that he’ll purchase luxury Chrome Hearts items straight from the co-founder himself, Richard Stark.",
+      "source": {
+        "annotation_id": 39776691,
+        "referent_id": 39776691,
+        "annotation_url": "https://genius.com/39776691/Drake-2-hard-4-the-radio/Need-to-call-up-a-stark-for-some-chrome-hearts",
+        "verified": false,
+        "votes_total": 30,
+        "mixpanel_opens": 25585
+      },
+      "options": [
+        "At this part in the song, the production shifts to a West Coast bounce similar to the kind of sound LA rapper Kendrick Lamar leaned on during his feud with Drake on “Not Like Us”…",
+        "These bars and the track title interpolate and pay homage to late Bay Area legend Mac Dre, who originally released “Too Hard for the Fuckin' Radio” in 1989 : Listen up, I’m about…",
+        "“The Motto” music video was filmed throughout the Bay Area, opening with Mac Dre’s mother Wanda Salvatto (known as “Mac Wanda”) paying tribute to her son and affirming that his…",
+        "Drake is flexing here, claiming that he’ll purchase luxury Chrome Hearts items straight from the co-founder himself, Richard Stark."
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “Drake ties him rapping on a west coast beat with the Pacific-10, an NCAA Power Five conference on the west coast of the United States that stood from 1978-2011 before expanding…”",
+      "explanation": "Drake ties him rapping on a west coast beat with the Pacific-10, an NCAA Power Five conference on the west coast of the United States that stood from 1978-2011 before expanding…",
+      "source": {
+        "annotation_id": 39776216,
+        "referent_id": 39776216,
+        "annotation_url": "https://genius.com/39776216/Drake-2-hard-4-the-radio/Yeah-and-im-on-the-west-like-the-pac-10",
+        "verified": false,
+        "votes_total": 12,
+        "mixpanel_opens": 0
+      },
+      "options": [
+        "Got an Oakland show tonight, baby",
+        "Mustard heard about us, gotta catch up to the slaps\n You ain’t had one since me and YG rapped",
+        "Damn, y’all was really island hoppin’ back then\n Huh, now y’all names got redacted\n Yeah, now a nigga gotta fact check, what?",
+        "Yeah, and I’m on the west like the Pac-10"
+      ],
+      "answer_index": 3
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “2 Hard 4 The Radio” about?",
+      "explanation": "The song works as a direct homage to Bay Area rap culture, especially through the slight reference to Mac Dre’s “Too Hard for the F***in Radio,” a classic Bay Area record tied to…",
+      "source": {
+        "song_id": 13560182,
+        "field": "description"
+      },
+      "options": [
+        "At this part in the song, the production shifts to a West Coast bounce similar to the kind of sound LA rapper Kendrick Lamar leaned on during his feud with Drake on “Not Like Us”…",
+        "Drake is referencing rapper Mac Dre’s “2 Hard 4 the Fuckin’ Radio,” which inspired the track’s title.",
+        "This is a response to Kendrick Lamar’s “Not Like Us,” where Kendrick says: I think that Oakland show gon' be your last stop, nigga Drake is basically saying he can still perform…",
+        "The song works as a direct homage to Bay Area rap culture, especially through the slight reference to Mac Dre’s “Too Hard for the F***in Radio,” a classic Bay Area record tied to…"
+      ],
+      "answer_index": 3
+    }
+  ]
+}
