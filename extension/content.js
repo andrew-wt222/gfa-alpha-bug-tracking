@@ -25,6 +25,15 @@
     return m ? parseInt(m[1], 10) : null;
   }
 
+  // The page's own lyrics feed the finish-the-bar questions
+  function scrapePageLyrics() {
+    return [...document.querySelectorAll('[data-lyrics-container="true"]')]
+      .flatMap((el) => el.innerText.split("\n"))
+      .map((l) => l.trim())
+      // the About blurb / read-more teaser can share the lyrics container
+      .filter((l) => l && !l.includes("Read More") && !l.includes("…"));
+  }
+
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
@@ -137,6 +146,8 @@
           Math.round(MAX_SPEED_BONUS * Math.max(0, 1 - elapsed / QUESTION_SECONDS));
       }
       this.results.push(correct);
+      this.missLabels = this.missLabels || [];
+      if (!correct) this.missLabels.push(q.share_label || "one question");
       this.renderCells();
       track("question_answered", {
         song_id: this.quiz.song_id,
@@ -174,6 +185,78 @@
       };
     }
 
+    shareText(total, verdict) {
+      const { song_title, artist, song_url } = this.quiz;
+      const base = `Song Trivia: ${this.correctCount}/${total} (${this.points} pts) on “${song_title}” — ${artist}.`;
+      const url = song_url || "https://genius.com";
+      const misses = this.missLabels || [];
+      if (misses.length === 0) return `${base} Perfect run. ${verdict.replace(/\.$/, "")}. Beat that: ${url}`;
+      if (misses.length === 1) return `${base} The one that got me? ${misses[0]}. Your turn: ${url}`;
+      return `${base} ${misses[0].charAt(0).toUpperCase() + misses[0].slice(1)} got me — among others. Think you know it better? ${url}`;
+    }
+
+    async renderAlbumProgress() {
+      const album = this.quiz.album;
+      if (!album) return;
+      const key = "viqAlbumProgress";
+      const store = (await chrome.storage.local.get(key))[key] || {};
+      const progress = store[album.id] || {};
+      progress[this.quiz.song_id] = { score: this.correctCount, total: this.questions.length };
+      store[album.id] = progress;
+      await chrome.storage.local.set({ [key]: store });
+
+      const played = Object.keys(progress).length;
+      const current = album.tracks.find((t) => t.song_id === this.quiz.song_id);
+      const next = album.tracks
+        .filter((t) => !progress[t.song_id])
+        .sort((a, b) => {
+          const cur = current?.number ?? 0; // nearest unplayed after this track, wrapping
+          return ((a.number - cur + 99) % 99) - ((b.number - cur + 99) % 99);
+        })[0];
+
+      const holder = this.el.querySelector("#viq-album");
+      if (!holder) return;
+      holder.innerHTML = `
+        <div class="viq-album-name">${esc(album.name.toUpperCase())} · ${played}/${album.tracks.length} TRACKS</div>
+        <div class="viq-album-bar"><div class="viq-album-fill" style="width:${Math.round(100 * played / album.tracks.length)}%"></div></div>
+        ${next ? `<a class="viq-btn viq-album-next" href="${esc(next.url)}">Next up: “${esc(next.title)}” →</a>` : `<div class="viq-album-done">Album complete. Certified ${esc(album.name)} scholar.</div>`}`;
+      if (next) holder.querySelector(".viq-album-next").onclick = () =>
+        track("album_next_track", { album_id: album.id, to_song_id: next.song_id });
+    }
+
+    async renderShareCard(verdict, total) {
+      const holder = this.el.querySelector("#viq-cardzone");
+      const { hasKey } = await chrome.runtime.sendMessage({ type: "HAS_GEMINI_KEY" });
+      if (!hasKey || !holder) return; // no key -> feature stays invisible
+      const btn = document.createElement("button");
+      btn.className = "viq-btn";
+      btn.textContent = "✨ Make my share card";
+      holder.appendChild(btn);
+      btn.onclick = async () => {
+        btn.disabled = true;
+        btn.textContent = "Painting your card…";
+        track("share_card_requested", { song_id: this.quiz.song_id });
+        const res = await chrome.runtime.sendMessage({
+          type: "GEN_CARD",
+          payload: {
+            score: this.correctCount, total, points: this.points, verdict,
+            songTitle: this.quiz.song_title, artist: this.quiz.artist,
+          },
+        });
+        if (res?.image) {
+          btn.remove();
+          holder.innerHTML = `
+            <img class="viq-card-img" src="${res.image}" alt="share card" />
+            <a class="viq-btn viq-primary" download="song-trivia-${this.quiz.song_id}.png" href="${res.image}">Download card</a>`;
+          track("share_card_generated", { song_id: this.quiz.song_id });
+        } else {
+          btn.disabled = false;
+          btn.textContent = "Card failed — try again";
+          console.warn("[verse-iq] share card error:", res?.error, res?.detail || "");
+        }
+      };
+    }
+
     renderResult() {
       const total = this.questions.length;
       this.setTimer(false);
@@ -194,22 +277,26 @@
             <h3 style="margin-top:10px">${verdict}</h3>
             <div class="viq-result-song">“${esc(this.quiz.song_title)}” — ${esc(this.quiz.artist)}</div>
           </div>
+          <div id="viq-cardzone"></div>
           <button class="viq-btn viq-primary" id="viq-share">Copy my result</button>
           <button class="viq-btn" id="viq-replay">Replay</button>
+          <div id="viq-album"></div>
         </div>`;
       this.el.querySelector("#viq-share").onclick = (e) => {
-        const text = `Song Trivia: ${this.correctCount}/${total} (${this.points} pts) on “${this.quiz.song_title}” — ${this.quiz.artist}. Think you know it better? ${this.quiz.song_url || "https://genius.com"}`;
-        navigator.clipboard.writeText(text).then(() => {
+        navigator.clipboard.writeText(this.shareText(total, verdict)).then(() => {
           e.target.textContent = "Copied!";
           setTimeout(() => { e.target.textContent = "Copy my result"; }, 1500);
         });
         track("quiz_share", { song_id: this.quiz.song_id });
       };
       this.el.querySelector("#viq-replay").onclick = () => {
-        this.index = 0; this.correctCount = 0; this.points = 0; this.results = [];
+        this.index = 0; this.correctCount = 0; this.points = 0;
+        this.results = []; this.missLabels = [];
         track("quiz_start", { song_id: this.quiz.song_id, replay: true });
         this.renderQuestion();
       };
+      this.renderAlbumProgress();
+      this.renderShareCard(verdict, total);
     }
   }
 
@@ -240,7 +327,13 @@
 
     const panel = mountPanel();
     const body = panel.querySelector(".viq-body");
-    const quiz = await chrome.runtime.sendMessage({ type: "GET_QUIZ", songId });
+    let pageLines = scrapePageLyrics();
+    if (!pageLines.length) {
+      // SPA nav can mount us before the lyrics render; one retry is enough
+      await new Promise((r) => setTimeout(r, 2000));
+      pageLines = scrapePageLyrics();
+    }
+    const quiz = await chrome.runtime.sendMessage({ type: "GET_QUIZ", songId, pageLines });
 
     if (quiz?.error === "no_token" || quiz?.error === "bad_token") {
       body.innerHTML = `

@@ -68,7 +68,25 @@ async function fetchAlbumDistractors(artistId, excludeAlbum, token) {
   }
 }
 
-async function getQuiz(songId) {
+// Album track list for album mode. Undocumented but working endpoint;
+// album mode simply doesn't render if it ever goes away.
+async function fetchAlbumTracks(albumId, token) {
+  try {
+    const { tracks } = await apiGet(`/albums/${albumId}/tracks`, { per_page: 50 }, token);
+    return tracks
+      .filter((t) => t.song)
+      .map((t) => ({
+        number: t.number,
+        song_id: t.song.id,
+        title: t.song.title,
+        url: t.song.url,
+      }));
+  } catch {
+    return [];
+  }
+}
+
+async function getQuiz(songId, pageLines) {
   if (quizCache.has(songId)) return quizCache.get(songId);
   const token = await getToken();
   if (!token) return { error: "no_token" };
@@ -78,10 +96,17 @@ async function getQuiz(songId) {
       apiGet(`/songs/${songId}`, { text_format: "plain" }, token),
       fetchReferents(songId, token),
     ]);
-    const albumDistractors = (song.album || {}).name
-      ? await fetchAlbumDistractors(song.primary_artist.id, song.album.name, token)
-      : [];
-    const quiz = buildQuiz(song, referents, albumDistractors);
+    const album = song.album || {};
+    const [albumDistractors, albumTracks] = await Promise.all([
+      album.name
+        ? fetchAlbumDistractors(song.primary_artist.id, album.name, token)
+        : [],
+      album.id ? fetchAlbumTracks(album.id, token) : [],
+    ]);
+    const quiz = buildQuiz(song, referents, albumDistractors, pageLines || []);
+    if (quiz && albumTracks.length >= 2) {
+      quiz.album = { id: album.id, name: album.name, tracks: albumTracks };
+    }
     const result = quiz || { error: "not_enough_content" };
     quizCache.set(songId, result);
     return result;
@@ -91,10 +116,73 @@ async function getQuiz(songId) {
   }
 }
 
+/* ---- AI share card via Gemini image generation ("Nano Banana") ---- */
+
+const GEMINI_MODEL = "gemini-2.5-flash-image";
+
+function cardPrompt({ score, total, points, verdict, songTitle, artist }) {
+  return [
+    "Design a bold square social-media share card image.",
+    "Style: punk zine / editorial magazine collage — dominant bright yellow",
+    "(#FFFF64) background, thick black ink borders, halftone textures, torn",
+    "off-white paper scraps, chunky black grotesque typography, sticker",
+    "shapes with hard offset shadows, playful hand-drawn doodles (lightning",
+    "bolts, stars, arrows).",
+    `Main content: a giant score "${score}/${total}", the verdict headline`,
+    `"${verdict.replace(/\.$/, "").toUpperCase()}", the song title "${songTitle}"`,
+    `by ${artist}, a small badge reading "SONG TRIVIA", and "${points} PTS".`,
+    "No other words. High contrast, crisp, centered composition, no photos",
+    "of real people.",
+  ].join(" ");
+}
+
+async function generateShareCard(payload) {
+  const { geminiKey } = await chrome.storage.sync.get("geminiKey");
+  if (!geminiKey) return { error: "no_gemini_key" };
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": geminiKey },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: cardPrompt(payload) }] }],
+          generationConfig: { responseModalities: ["TEXT", "IMAGE"] },
+        }),
+      }
+    );
+    if (!res.ok) {
+      const detail = (await res.text()).slice(0, 200);
+      return { error: `gemini_${res.status}`, detail };
+    }
+    const data = await res.json();
+    const parts = data.candidates?.[0]?.content?.parts || [];
+    const img = parts.find((p) => p.inlineData?.data || p.inline_data?.data);
+    if (!img) return { error: "gemini_no_image" };
+    const blob = img.inlineData || img.inline_data;
+    return { image: `data:${blob.mimeType || blob.mime_type || "image/png"};base64,${blob.data}` };
+  } catch (e) {
+    return { error: "gemini_error", detail: String(e) };
+  }
+}
+
+async function hasGeminiKey() {
+  const { geminiKey } = await chrome.storage.sync.get("geminiKey");
+  return { hasKey: !!geminiKey };
+}
+
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg.type === "GET_QUIZ") {
-    getQuiz(msg.songId).then(sendResponse);
+    getQuiz(msg.songId, msg.pageLines).then(sendResponse);
     return true; // async response
+  }
+  if (msg.type === "GEN_CARD") {
+    generateShareCard(msg.payload).then(sendResponse);
+    return true;
+  }
+  if (msg.type === "HAS_GEMINI_KEY") {
+    hasGeminiKey().then(sendResponse);
+    return true;
   }
   if (msg.type === "OPEN_OPTIONS") {
     chrome.runtime.openOptionsPage();

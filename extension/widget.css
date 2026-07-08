@@ -252,6 +252,42 @@
   font-weight: 700;
 }
 
+/* Album mode */
+#verse-iq-panel #viq-album { margin-top: 4px; }
+#verse-iq-panel .viq-album-name {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--viq-gray);
+  margin: 6px 0;
+  text-align: left;
+}
+#verse-iq-panel .viq-album-bar {
+  height: 10px;
+  border: 2px solid var(--viq-ink);
+  background: #fff;
+  margin-bottom: 12px;
+}
+#verse-iq-panel .viq-album-fill { height: 100%; background: var(--viq-yellow); border-right: 2px solid var(--viq-ink); }
+#verse-iq-panel .viq-album-next { display: block; text-decoration: none; text-align: center; font-weight: 700; }
+#verse-iq-panel .viq-album-done {
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--viq-yellow);
+  border: 2px solid var(--viq-ink);
+  padding: 8px;
+}
+
+/* AI share card */
+#verse-iq-panel .viq-card-img {
+  width: 100%;
+  border: 2px solid var(--viq-ink);
+  box-shadow: 3px 3px 0 var(--viq-ink);
+  margin-bottom: 12px;
+  display: block;
+}
+#verse-iq-panel #viq-cardzone a.viq-btn { display: block; text-decoration: none; box-sizing: border-box; }
+
 /* Flash applied to the page's real referent anchor on deep-link */
 .viq-lyric-flash {
   animation: viq-flash 1.6s ease-out 2;

@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "description": "Lyric & song trivia on any Genius song page, generated live from annotations and song metadata. Alpha — unreviewed content.",
   "permissions": ["storage"],
-  "host_permissions": ["https://api.genius.com/*"],
+  "host_permissions": [
+    "https://api.genius.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
   "background": { "service_worker": "background.js", "type": "module" },
   "content_scripts": [
     {

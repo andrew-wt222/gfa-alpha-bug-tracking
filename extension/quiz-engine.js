@@ -11,6 +11,7 @@ const SUMMARY_MAX_CHARS = 180;
 const FRAGMENT_MIN_CHARS = 15;
 const FRAGMENT_MAX_CHARS = 250;
 const MIN_QUESTIONS = 4;
+const MAX_QUESTIONS = 8;
 
 const ABBREVIATIONS = new Set([
   "pt", "ft", "feat", "st", "mr", "mrs", "ms", "dr", "jr",
@@ -246,12 +247,95 @@ function buildMetadataQuestions(song, albumDistractors, rng) {
   return questions;
 }
 
+/* ---- lyric completion questions (from the page's own lyrics) ---- */
+
+const BLANK_WORDS = 3;
+
+function normalizeEnding(s) {
+  return s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, "").trim();
+}
+
+function buildCompletionQuestions(pageLines, rng) {
+  // Candidate lines: real bars, long enough that blanking the last words
+  // leaves both a meaningful stem and a guessable ending
+  const candidates = [];
+  const seen = new Set();
+  for (const raw of pageLines || []) {
+    const line = raw.trim();
+    if (line.startsWith("[") || line.length < 30 || line.length > 120) continue;
+    if (/read more|…/i.test(line)) continue; // prose leaking from the About blurb
+    const words = line.split(/\s+/);
+    if (words.length < 7) continue;
+    const key = normalizeEnding(line);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    candidates.push(words);
+  }
+  if (candidates.length < 5) return [];
+
+  const endingOf = (words) => words.slice(-BLANK_WORDS).join(" ");
+  const stemOf = (words) => words.slice(0, -BLANK_WORDS).join(" ");
+
+  const order = shuffle([...candidates.keys()], rng);
+  const questions = [];
+  for (const idx of order) {
+    if (questions.length >= 2) break;
+    const words = candidates[idx];
+    const correct = endingOf(words);
+    const correctKey = normalizeEnding(correct);
+    // Distractors: endings of other candidate lines, distinct from the answer
+    const wrong = [];
+    const wrongKeys = new Set([correctKey]);
+    for (const j of order) {
+      if (j === idx || wrong.length >= 3) continue;
+      const ending = endingOf(candidates[j]);
+      const key = normalizeEnding(ending);
+      if (wrongKeys.has(key)) continue;
+      wrongKeys.add(key);
+      wrong.push(ending);
+    }
+    if (wrong.length < 3) continue;
+    questions.push({
+      type: "completion",
+      prompt: `Finish the bar: “${stemOf(words)} ___”`,
+      correct,
+      distractors: wrong,
+      explanation: `The line is: “${words.join(" ")}”`,
+      source: { field: "page_lyrics" },
+    });
+  }
+  return questions;
+}
+
 /* ---- quiz assembly ---- */
 
-export function buildQuiz(song, referents, albumDistractors = []) {
+// Short handle for each question, used in the taunting share text
+function shareLabel(q) {
+  const firstWords = (s, n) => s.split(/\s+/).slice(0, n).join(" ");
+  switch (q.type) {
+    case "meaning": {
+      const frag = q.prompt.match(/“([^”]+)”/);
+      return frag ? `the line “${firstWords(frag[1], 5)}…”` : "a lyric meaning";
+    }
+    case "reverse": return "the deep cut";
+    case "song_meaning": return "what the song’s about";
+    case "producer": return "who produced it";
+    case "album": return "which album it’s on";
+    case "features": return "the features";
+    case "release_year": return "the release year";
+    case "completion": {
+      const stem = q.prompt.match(/“([^_”]+)/);
+      return stem ? `finishing “${firstWords(stem[1].trim(), 4)}…”` : "finishing a bar";
+    }
+    default: return "one question";
+  }
+}
+
+export function buildQuiz(song, referents, albumDistractors = [], pageLines = []) {
   const rng = seededRng(song.id);
   const annotationQs = buildAnnotationQuestions(song, referents, rng);
   const metadataQs = buildMetadataQuestions(song, albumDistractors, rng);
+  const completionQs = buildCompletionQuestions(pageLines, rng);
 
   const questions = [...annotationQs];
 
@@ -279,16 +363,30 @@ export function buildQuiz(song, referents, albumDistractors = []) {
     }
   }
 
-  questions.push(...metadataQs);
+  questions.push(...metadataQs, ...completionQs);
   if (questions.length < MIN_QUESTIONS) return null;
 
+  // Cap at 8 (the design's quiz length), shedding the most expendable
+  // types first — never the meaning/deep-cut core
+  const DROP_ORDER = ["release_year", "features", "producer", "completion"];
+  for (const type of DROP_ORDER) {
+    while (questions.length > MAX_QUESTIONS) {
+      const i = questions.findIndex((q) => q.type === type);
+      if (i === -1) break;
+      questions.splice(i, 1);
+    }
+  }
+
   // Design: questions ramp easy -> genius-level. Song facts are warmups,
-  // line meanings are the middle, the big picture and the deep cut close.
+  // finish-the-bar is the fun middle, line meanings ramp up, the big
+  // picture and the deep cut close.
   const DIFFICULTY = {
     release_year: 0, album: 1, features: 2, producer: 3,
-    meaning: 4, song_meaning: 5, reverse: 6,
+    completion: 4, meaning: 5, song_meaning: 6, reverse: 7,
   };
   questions.sort((a, b) => DIFFICULTY[a.type] - DIFFICULTY[b.type]);
+
+  for (const q of questions) q.share_label = shareLabel(q);
 
   for (const q of questions) {
     const options = [q.correct, ...q.distractors];
