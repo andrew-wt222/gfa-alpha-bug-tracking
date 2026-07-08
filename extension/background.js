@@ -107,6 +107,7 @@ async function getQuiz(songId, pageLines) {
     if (quiz && albumTracks.length >= 2) {
       quiz.album = { id: album.id, name: album.name, tracks: albumTracks };
     }
+    if (quiz) quiz.artist_image = song.primary_artist.image_url || null;
     const result = quiz || { error: "not_enough_content" };
     quizCache.set(songId, result);
     return result;
@@ -120,7 +121,7 @@ async function getQuiz(songId, pageLines) {
 
 const GEMINI_MODEL = "gemini-2.5-flash-image";
 
-function cardPrompt({ score, total, points, verdict, songTitle, artist }) {
+function cardPrompt({ score, total, points, verdict, songTitle, artist }, withArtist) {
   return [
     "Design a bold square social-media share card image.",
     "Style: punk zine / editorial magazine collage — dominant bright yellow",
@@ -128,25 +129,59 @@ function cardPrompt({ score, total, points, verdict, songTitle, artist }) {
     "off-white paper scraps, chunky black grotesque typography, sticker",
     "shapes with hard offset shadows, playful hand-drawn doodles (lightning",
     "bolts, stars, arrows).",
+    ...(withArtist ? [
+      "Feature the person from the provided reference photo as the card's",
+      "centerpiece: a stylized high-contrast posterized/halftone ink",
+      "illustration of them (screen-print poster treatment, not a photo),",
+      "integrated into the collage.",
+    ] : []),
     `Main content: a giant score "${score}/${total}", the verdict headline`,
     `"${verdict.replace(/\.$/, "").toUpperCase()}", the song title "${songTitle}"`,
     `by ${artist}, a small badge reading "SONG TRIVIA", and "${points} PTS".`,
-    "No other words. High contrast, crisp, centered composition, no photos",
-    "of real people.",
+    "No other words, and spell every word exactly as given. High contrast,",
+    "crisp, centered composition" +
+      (withArtist ? "." : ", no photos of real people."),
   ].join(" ");
+}
+
+function bytesToBase64(bytes) {
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) {
+    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  }
+  return btoa(bin);
+}
+
+// Artist photo as an image-to-image reference — asking the model to draw a
+// named celebrity from scratch gets refused; a provided photo to stylize works
+async function fetchReferenceImage(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`image fetch ${res.status}`);
+  const mimeType = res.headers.get("Content-Type") || "image/jpeg";
+  const bytes = new Uint8Array(await res.arrayBuffer());
+  return { inlineData: { mimeType, data: bytesToBase64(bytes) } };
 }
 
 async function generateShareCard(payload) {
   const { geminiKey } = await chrome.storage.sync.get("geminiKey");
   if (!geminiKey) return { error: "no_gemini_key" };
   try {
+    const withArtist = !!(payload.withArtist && payload.artistImage);
+    const parts = [{ text: cardPrompt(payload, withArtist) }];
+    if (withArtist) {
+      try {
+        parts.push(await fetchReferenceImage(payload.artistImage));
+      } catch {
+        parts[0] = { text: cardPrompt(payload, false) }; // fall back to no-likeness card
+      }
+    }
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-goog-api-key": geminiKey },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: cardPrompt(payload) }] }],
+          contents: [{ parts }],
           generationConfig: { responseModalities: ["TEXT", "IMAGE"] },
         }),
       }
@@ -156,8 +191,8 @@ async function generateShareCard(payload) {
       return { error: `gemini_${res.status}`, detail };
     }
     const data = await res.json();
-    const parts = data.candidates?.[0]?.content?.parts || [];
-    const img = parts.find((p) => p.inlineData?.data || p.inline_data?.data);
+    const outParts = data.candidates?.[0]?.content?.parts || [];
+    const img = outParts.find((p) => p.inlineData?.data || p.inline_data?.data);
     if (!img) return { error: "gemini_no_image" };
     const blob = img.inlineData || img.inline_data;
     return { image: `data:${blob.mimeType || blob.mime_type || "image/png"};base64,${blob.data}` };

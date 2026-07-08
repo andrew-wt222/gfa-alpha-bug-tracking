@@ -228,33 +228,41 @@
       const holder = this.el.querySelector("#viq-cardzone");
       const { hasKey } = await chrome.runtime.sendMessage({ type: "HAS_GEMINI_KEY" });
       if (!hasKey || !holder) return; // no key -> feature stays invisible
-      const btn = document.createElement("button");
-      btn.className = "viq-btn";
-      btn.textContent = "✨ Make my share card";
-      holder.appendChild(btn);
-      btn.onclick = async () => {
-        btn.disabled = true;
-        btn.textContent = "Painting your card…";
-        track("share_card_requested", { song_id: this.quiz.song_id });
-        const res = await chrome.runtime.sendMessage({
-          type: "GEN_CARD",
-          payload: {
-            score: this.correctCount, total, points: this.points, verdict,
-            songTitle: this.quiz.song_title, artist: this.quiz.artist,
-          },
-        });
-        if (res?.image) {
-          btn.remove();
-          holder.innerHTML = `
-            <img class="viq-card-img" src="${res.image}" alt="share card" />
-            <a class="viq-btn viq-primary" download="song-trivia-${this.quiz.song_id}.png" href="${res.image}">Download card</a>`;
-          track("share_card_generated", { song_id: this.quiz.song_id });
-        } else {
-          btn.disabled = false;
-          btn.textContent = "Card failed — try again";
-          console.warn("[verse-iq] share card error:", res?.error, res?.detail || "");
-        }
+
+      const makeButton = (label, withArtist) => {
+        const btn = document.createElement("button");
+        btn.className = "viq-btn";
+        btn.textContent = label;
+        holder.appendChild(btn);
+        btn.onclick = async () => {
+          holder.querySelectorAll("button").forEach((b) => (b.disabled = true));
+          btn.textContent = "Painting your card…";
+          track("share_card_requested", { song_id: this.quiz.song_id, with_artist: withArtist });
+          const res = await chrome.runtime.sendMessage({
+            type: "GEN_CARD",
+            payload: {
+              score: this.correctCount, total, points: this.points, verdict,
+              songTitle: this.quiz.song_title, artist: this.quiz.artist,
+              withArtist, artistImage: this.quiz.artist_image,
+            },
+          });
+          if (res?.image) {
+            holder.innerHTML = `
+              <img class="viq-card-img" src="${res.image}" alt="share card" />
+              <a class="viq-btn viq-primary" download="song-trivia-${this.quiz.song_id}.png" href="${res.image}">Download card</a>`;
+            track("share_card_generated", { song_id: this.quiz.song_id, with_artist: withArtist });
+          } else {
+            holder.querySelectorAll("button").forEach((b) => (b.disabled = false));
+            btn.textContent = "Card failed — try again";
+            console.warn("[verse-iq] share card error:", res?.error, res?.detail || "");
+          }
+        };
       };
+
+      makeButton("✨ Make my share card", false);
+      if (this.quiz.artist_image) {
+        makeButton(`✨ Card with ${this.quiz.artist}`, true);
+      }
     }
 
     renderResult() {
