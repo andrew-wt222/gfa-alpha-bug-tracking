@@ -1,19 +1,37 @@
-/* Verse IQ extension widget — floating panel over any Genius song page.
- * Visual language matches web/quiz-widget.css (dark card, Genius yellow). */
+/* Verse IQ extension widget — "Editorial widget" direction (1A) from the
+ * Song Trivia design: bright magazine energy, sticker-shadow buttons,
+ * square progress cells, shrinking timer bar.
+ * Palette: yellow #FFFF64 · ink #0F0F0F · paper #EFEFE7. */
+
+@font-face {
+  font-family: "VIQ Space Grotesk";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/space-grotesk-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "VIQ Hanken Grotesk";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/hanken-grotesk-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 #verse-iq-panel {
+  --viq-yellow: #FFFF64;
+  --viq-ink: #0F0F0F;
+  --viq-paper: #EFEFE7;
+  --viq-gray: #5C5C5C;
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 380px;
-  max-height: min(72vh, 640px);
+  width: 390px;
+  max-height: min(76vh, 680px);
   z-index: 2147483000;
-  background: #121212;
-  color: #fff;
-  border: 1px solid #2b2b2b;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
+  color: var(--viq-ink);
+  border: 2px solid var(--viq-ink);
+  box-shadow: 6px 6px 0 var(--viq-ink);
+  font-family: "VIQ Space Grotesk", "Space Grotesk", -apple-system, sans-serif;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -24,108 +42,221 @@
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  background: #1a1a1a;
-  border-bottom: 1px solid #2b2b2b;
+  background: var(--viq-yellow);
+  border-bottom: 2px solid var(--viq-ink);
 }
 #verse-iq-panel .viq-brand {
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 800;
-  color: #ffff64; /* Genius yellow */
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--viq-ink);
 }
 #verse-iq-panel .viq-alpha {
   font-size: 9px;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
   font-weight: 700;
-  color: #6b5900;
-  background: #fff3cd;
-  border-radius: 4px;
-  padding: 2px 6px;
+  color: var(--viq-yellow);
+  background: var(--viq-ink);
+  padding: 3px 7px;
   cursor: help;
 }
 #verse-iq-panel .viq-min {
   margin-left: auto;
   background: none;
   border: none;
-  color: #bdbdbd;
-  font-size: 16px;
+  color: var(--viq-ink);
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
   line-height: 1;
   padding: 0 4px;
+  font-family: inherit;
 }
-#verse-iq-panel .viq-min:hover { color: #fff; }
 #verse-iq-panel.viq-minimized .viq-body { display: none; }
 
-#verse-iq-panel .viq-body { overflow-y: auto; padding: 12px; }
+/* Square progress cells (in the header, right of the brand) */
+#verse-iq-panel .viq-cells { display: flex; gap: 4px; margin-left: 4px; }
+#verse-iq-panel .viq-cell {
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--viq-ink);
+  background: #fff;
+  box-sizing: border-box;
+}
+#verse-iq-panel .viq-cell.viq-cell-current { background: repeating-linear-gradient(45deg, #fff 0 2px, var(--viq-ink) 2px 3px); }
+#verse-iq-panel .viq-cell.viq-cell-right { background: var(--viq-ink); }
+#verse-iq-panel .viq-cell.viq-cell-wrong { background: var(--viq-gray); border-color: var(--viq-gray); }
 
-#verse-iq-panel .viq-card { font-size: 14px; }
+/* Shrinking timer bar */
+#verse-iq-panel .viq-timer {
+  height: 8px;
+  background: var(--viq-paper);
+  border-bottom: 2px solid var(--viq-ink);
+  position: relative;
+  flex: none;
+}
+#verse-iq-panel .viq-timer-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  background: var(--viq-yellow);
+  border-right: 2px solid var(--viq-ink);
+}
+#verse-iq-panel .viq-timer-fill.viq-timer-running {
+  transition: width linear; /* duration set inline per question */
+  width: 0%;
+}
+#verse-iq-panel .viq-timer-fill.viq-timer-low { background: var(--viq-ink); }
+
+#verse-iq-panel .viq-body { overflow-y: auto; padding: 16px; background: #fff; }
+
 #verse-iq-panel .viq-kicker {
   font-size: 10px;
-  letter-spacing: 2px;
-  color: #ffff64;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--viq-gray);
   margin-bottom: 8px;
   font-weight: 700;
 }
-#verse-iq-panel .viq-card h3 { margin: 0 0 10px; font-size: 16px; line-height: 1.35; }
-#verse-iq-panel .viq-card p { color: #bdbdbd; font-size: 13px; margin: 0 0 12px; }
-#verse-iq-panel .viq-loading { color: #bdbdbd; }
+#verse-iq-panel .viq-card h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--viq-ink);
+}
+#verse-iq-panel .viq-card p {
+  color: #3D3D3D;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  font-family: "VIQ Hanken Grotesk", "Hanken Grotesk", -apple-system, sans-serif;
+}
+#verse-iq-panel .viq-loading { color: var(--viq-gray); }
 
+/* Sticker-shadow buttons */
 #verse-iq-panel .viq-btn {
   display: block;
-  width: 100%;
+  width: calc(100% - 4px);
   text-align: left;
-  background: #1e1e1e;
-  color: #fff;
-  border: 1px solid #3a3a3a;
-  border-radius: 8px;
+  background: #fff;
+  color: var(--viq-ink);
+  border: 2px solid var(--viq-ink);
+  box-shadow: 3px 3px 0 var(--viq-ink);
+  border-radius: 0;
   padding: 10px 12px;
-  margin-top: 8px;
+  margin: 0 0 12px;
   font-size: 13px;
   line-height: 1.4;
   cursor: pointer;
-  font-family: inherit;
-  transition: border-color 0.15s, background 0.15s;
+  font-family: "VIQ Hanken Grotesk", "Hanken Grotesk", -apple-system, sans-serif;
+  font-weight: 500;
+  transition: transform 0.08s, box-shadow 0.08s;
 }
-#verse-iq-panel .viq-btn:hover:not(:disabled) { border-color: #ffff64; }
-#verse-iq-panel .viq-btn:disabled { cursor: default; opacity: 0.9; }
+#verse-iq-panel .viq-btn:hover:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--viq-ink);
+  background: var(--viq-yellow);
+}
+#verse-iq-panel .viq-btn:active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+#verse-iq-panel .viq-btn:disabled { cursor: default; }
 
 #verse-iq-panel .viq-primary {
-  background: #ffff64;
-  color: #121212;
+  background: var(--viq-yellow);
+  font-family: inherit;
   font-weight: 700;
   text-align: center;
+  letter-spacing: 0.02em;
 }
-#verse-iq-panel .viq-primary:hover:not(:disabled) { background: #ffef2e; }
 
-#verse-iq-panel .viq-option.viq-correct { border-color: #38c172; background: #12351f; }
-#verse-iq-panel .viq-option.viq-wrong { border-color: #e3342f; background: #3a1513; }
+#verse-iq-panel .viq-option.viq-correct {
+  background: var(--viq-yellow);
+  font-weight: 700;
+}
+#verse-iq-panel .viq-option.viq-correct::after { content: "  ✓"; font-weight: 700; }
+#verse-iq-panel .viq-option.viq-wrong {
+  background: var(--viq-ink);
+  color: #fff;
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+#verse-iq-panel .viq-option.viq-wrong::after { content: "  ✕"; }
+#verse-iq-panel .viq-option:disabled:not(.viq-correct):not(.viq-wrong) { opacity: 0.45; box-shadow: none; }
 
 #verse-iq-panel .viq-feedback {
-  margin-top: 12px;
-  border-top: 1px solid #2b2b2b;
-  padding-top: 10px;
+  margin-top: 14px;
+  border-top: 2px solid var(--viq-ink);
+  padding-top: 12px;
 }
-#verse-iq-panel .viq-verdict { font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+#verse-iq-panel .viq-verdict {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
 #verse-iq-panel .viq-feedback blockquote {
-  margin: 0 0 8px;
-  padding: 8px 10px;
-  border-left: 3px solid #ffff64;
-  background: #1a1a1a;
-  color: #ddd;
-  font-size: 12px;
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--viq-yellow);
+  background: var(--viq-paper);
+  color: var(--viq-ink);
+  font-size: 12.5px;
+  line-height: 1.5;
+  font-family: "VIQ Hanken Grotesk", "Hanken Grotesk", -apple-system, sans-serif;
 }
-#verse-iq-panel .viq-source { color: #8a8a8a; font-size: 11px; margin-bottom: 8px; }
-#verse-iq-panel .viq-source a { color: #ffff64; }
+#verse-iq-panel .viq-source {
+  color: var(--viq-gray);
+  font-size: 11px;
+  margin-bottom: 10px;
+  font-family: "VIQ Hanken Grotesk", "Hanken Grotesk", -apple-system, sans-serif;
+}
+#verse-iq-panel .viq-source a { color: var(--viq-ink); background: var(--viq-yellow); text-decoration: none; padding: 0 3px; font-weight: 600; }
 
+/* Result: shareable magazine card */
 #verse-iq-panel .viq-result { text-align: center; }
-#verse-iq-panel .viq-score { font-size: 40px; font-weight: 800; color: #ffff64; }
+#verse-iq-panel .viq-result-card {
+  background: var(--viq-paper);
+  border: 2px solid var(--viq-ink);
+  padding: 20px 16px 16px;
+  margin-bottom: 14px;
+}
+#verse-iq-panel .viq-score {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--viq-ink);
+}
+#verse-iq-panel .viq-score span { color: var(--viq-gray); font-size: 26px; }
+#verse-iq-panel .viq-points {
+  display: inline-block;
+  background: var(--viq-ink);
+  color: var(--viq-yellow);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  margin-top: 10px;
+}
+#verse-iq-panel .viq-result-song {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--viq-gray);
+  margin-top: 10px;
+  font-weight: 700;
+}
 
 /* Flash applied to the page's real referent anchor on deep-link */
 .viq-lyric-flash {
   animation: viq-flash 1.6s ease-out 2;
-  border-radius: 3px;
 }
 @keyframes viq-flash {
-  0% { background-color: #ffff64; }
+  0% { background-color: #FFFF64; }
   100% { background-color: transparent; }
 }

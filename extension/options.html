@@ -4,19 +4,25 @@
   <meta charset="utf-8" />
   <title>Verse IQ — Settings</title>
   <style>
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: #121212; color: #fff; max-width: 520px; margin: 40px auto; padding: 0 20px; }
-    h1 { font-size: 18px; }
-    h1 span { color: #ffff64; }
-    p { color: #bdbdbd; font-size: 13px; line-height: 1.5; }
-    input { width: 100%; box-sizing: border-box; background: #1e1e1e; color: #fff; border: 1px solid #3a3a3a; border-radius: 8px; padding: 10px 12px; font-size: 13px; }
-    button { margin-top: 12px; background: #ffff64; color: #121212; font-weight: 700; border: none; border-radius: 8px; padding: 10px 18px; font-size: 13px; cursor: pointer; }
-    button:hover { background: #ffef2e; }
-    #status { font-size: 12px; margin-top: 10px; color: #38c172; min-height: 16px; }
-    a { color: #ffff64; }
+    @font-face {
+      font-family: "VIQ Space Grotesk";
+      src: url("fonts/space-grotesk-latin.woff2") format("woff2");
+      font-weight: 300 700;
+    }
+    body { font-family: "VIQ Space Grotesk", "Space Grotesk", -apple-system, sans-serif; background: #EFEFE7; color: #0F0F0F; max-width: 520px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 18px; letter-spacing: 0.02em; }
+    h1 span { background: #FFFF64; padding: 2px 8px; border: 2px solid #0F0F0F; }
+    p { color: #3D3D3D; font-size: 13px; line-height: 1.5; }
+    input { width: 100%; box-sizing: border-box; background: #fff; color: #0F0F0F; border: 2px solid #0F0F0F; border-radius: 0; padding: 10px 12px; font-size: 13px; font-family: inherit; }
+    button { margin-top: 14px; background: #FFFF64; color: #0F0F0F; font-weight: 700; border: 2px solid #0F0F0F; box-shadow: 3px 3px 0 #0F0F0F; border-radius: 0; padding: 10px 18px; font-size: 13px; cursor: pointer; font-family: inherit; }
+    button:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 #0F0F0F; }
+    #status { font-size: 12px; margin-top: 10px; color: #0F0F0F; font-weight: 600; min-height: 16px; }
+    a { color: #0F0F0F; }
+    a:hover { background: #FFFF64; }
   </style>
 </head>
 <body>
-  <h1><span>VERSE IQ</span> — Settings</h1>
+  <h1><span>SONG TRIVIA</span> — Settings</h1>
   <p>
     Paste a Genius API <strong>client access token</strong> (from
     <a href="https://genius.com/api-clients" target="_blank">genius.com/api-clients</a>).

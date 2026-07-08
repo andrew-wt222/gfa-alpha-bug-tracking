@@ -282,6 +282,14 @@ export function buildQuiz(song, referents, albumDistractors = []) {
   questions.push(...metadataQs);
   if (questions.length < MIN_QUESTIONS) return null;
 
+  // Design: questions ramp easy -> genius-level. Song facts are warmups,
+  // line meanings are the middle, the big picture and the deep cut close.
+  const DIFFICULTY = {
+    release_year: 0, album: 1, features: 2, producer: 3,
+    meaning: 4, song_meaning: 5, reverse: 6,
+  };
+  questions.sort((a, b) => DIFFICULTY[a.type] - DIFFICULTY[b.type]);
+
   for (const q of questions) {
     const options = [q.correct, ...q.distractors];
     shuffle(options, rng);
