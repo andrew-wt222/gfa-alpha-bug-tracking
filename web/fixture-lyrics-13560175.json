@@ -1,0 +1,22 @@
+{
+  "_fixture_note": "Synthetic lyrics for the demo page only — matches pipeline/fixtures/genius_13560175.json. The real song page already has lyrics + referent DOM.",
+  "lines": [
+    {"text": "[Verse 1]"},
+    {"text": "I left the porch light on so the house could pretend", "referent_id": 90001},
+    {"text": "Packed the rearview full of everything I couldn't say", "referent_id": 90002},
+    {"text": "Gas station coffee tastes like being seventeen", "referent_id": 90003},
+    {"text": "And the interstate hums a key I never played"},
+    {"text": ""},
+    {"text": "[Chorus]"},
+    {"text": "I was the understudy in a play I wrote myself", "referent_id": 90004},
+    {"text": "Waiting in the wings of my own life"},
+    {"text": "Mile markers counting down what I owe", "referent_id": 90005},
+    {"text": "Tonight the lead role rides at midnight"},
+    {"text": ""},
+    {"text": "[Verse 2]"},
+    {"text": "The radio only plays the songs we ruined", "referent_id": 90006},
+    {"text": "So I sing over them until they're mine"},
+    {"text": "Dawn hit the windshield like applause", "referent_id": 90007},
+    {"text": "Kept the map folded to the page with no roads", "referent_id": 90008}
+  ]
+}

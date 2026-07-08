@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Genius song page mock — Verse IQ prototype</title>
+  <link rel="stylesheet" href="quiz-widget.css" />
+  <style>
+    /* Minimal stand-in for the Genius song page layout */
+    body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; background: #f7f7f2; color: #121212; }
+    header { background: #ffff64; padding: 14px 24px; font-weight: 800; letter-spacing: 1px; }
+    header .note { float: right; font-weight: 400; font-size: 12px; color: #333; }
+    .page { max-width: 1080px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 1fr 360px; gap: 28px; }
+    @media (max-width: 860px) { .page { grid-template-columns: 1fr; } }
+    h1 { margin: 0; font-size: 26px; }
+    .artist { color: #555; margin: 4px 0 20px; }
+    .lyrics { font-size: 16px; line-height: 2; white-space: pre-line; }
+    .lyric-annotated { background: #e9e9e9; cursor: pointer; padding: 1px 2px; }
+    .fixture-banner { background: #fff3cd; border: 1px solid #ffe08a; color: #6b5900; border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 18px; }
+  </style>
+</head>
+<body>
+  <header>GENIUS <span class="note">song page mock · Verse IQ prototype</span></header>
+  <div class="page">
+    <main>
+      <div class="fixture-banner">
+        Demo fixture: song/annotation IDs are real (from Mixpanel project 446209);
+        lyrics and annotation text are synthetic placeholders until the pipeline
+        runs against the live Genius API.
+      </div>
+      <h1 id="song-title">Loading…</h1>
+      <div class="artist" id="song-artist"></div>
+      <div class="lyrics" id="lyrics"></div>
+    </main>
+    <aside>
+      <div id="verse-iq"></div>
+    </aside>
+  </div>
+
+  <script src="quiz-widget.js"></script>
+  <script>
+    const SONG_ID = 13560175;
+
+    // The mock page renders lyrics from the quiz's source fixture so the
+    // "see it in the lyrics" deep link has something to highlight. On the
+    // real song page the lyrics/referent DOM already exists.
+    async function renderPage() {
+      const res = await fetch(`data/quiz-${SONG_ID}.json`);
+      const quiz = await res.json();
+      document.getElementById("song-title").textContent = quiz.song_title;
+      document.getElementById("song-artist").textContent = quiz.artist;
+
+      const fixture = await fetch(`fixture-lyrics-${SONG_ID}.json`).then(r => r.ok ? r.json() : null);
+      if (fixture) {
+        document.getElementById("lyrics").innerHTML = fixture.lines
+          .map(line => line.referent_id
+            ? `<span class="lyric-annotated" id="ref-${line.referent_id}">${line.text}</span>`
+            : line.text)
+          .join("\n");
+      }
+      VerseIQ.mount(document.getElementById("verse-iq"), SONG_ID);
+    }
+    renderPage();
+  </script>
+</body>
+</html>

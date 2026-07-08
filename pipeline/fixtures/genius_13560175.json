@@ -1,0 +1,142 @@
+{
+  "_fixture_note": "SYNTHETIC DEMO DATA. Song ID 13560175 and the annotation IDs below are real IDs taken from the Mixpanel song:open_annotation export, but the title, artist, lyrics, and annotation text are invented placeholders because the Genius API is not reachable from the dev container. Regenerate real content by running generate_quiz.py WITHOUT --fixture once GENIUS_ACCESS_TOKEN and network access are configured. Do not ship this content.",
+  "song": {
+    "id": 13560175,
+    "title": "Midnight Getaway (Demo Fixture)",
+    "primary_artist": {"id": 999001, "name": "The Understudy"},
+    "url": "https://genius.com/The-understudy-midnight-getaway-lyrics",
+    "description": {
+      "plain": "“Midnight Getaway” is the album’s emotional centerpiece, written the night the narrator decided to leave her hometown for good. Over a muted piano loop, she frames the departure not as an escape from a person but from the version of herself she performed for everyone else. The artist confirmed in interviews that the song was cut in a single late-night take."
+    }
+  },
+  "referents": [
+    {
+      "id": 90001,
+      "fragment": "I left the porch light on so the house could pretend",
+      "annotations": [
+        {
+          "id": 39776494,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 41,
+          "url": "https://genius.com/39776494",
+          "body": {
+            "plain": "The porch light is a classic symbol of waiting for someone to come home. By leaving it on herself, the narrator stages the illusion that she might return — the house gets to “pretend,” but she already knows the leaving is permanent."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90002,
+      "fragment": "Packed the rearview full of everything I couldn't say",
+      "annotations": [
+        {
+          "id": 39782267,
+          "state": "accepted",
+          "verified": true,
+          "votes_total": 66,
+          "url": "https://genius.com/39782267",
+          "body": {
+            "plain": "A verified line-note from the artist: the “rearview” holds the unsaid goodbyes. Instead of luggage, what she packs is silence — all the conversations she avoided are what she actually carries out of town, visible only behind her as she drives."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90003,
+      "fragment": "Gas station coffee tastes like being seventeen",
+      "annotations": [
+        {
+          "id": 39776463,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 38,
+          "url": "https://genius.com/39776463",
+          "body": {
+            "plain": "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew. The nostalgia cuts both ways: seventeen was the last time leaving town felt like freedom instead of failure."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90004,
+      "fragment": "I was the understudy in a play I wrote myself",
+      "annotations": [
+        {
+          "id": 39816024,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 54,
+          "url": "https://genius.com/39816024",
+          "body": {
+            "plain": "The album’s thesis line, and the source of the artist’s stage name. She authored the life everyone watched — the hometown role, the relationship, the plans — yet performed it like a stand-in, never feeling entitled to the lead part in her own story."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90005,
+      "fragment": "Mile markers counting down what I owe",
+      "annotations": [
+        {
+          "id": 39775894,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 29,
+          "url": "https://genius.com/39775894",
+          "body": {
+            "plain": "Each mile marker reads like a debt statement: guilt about her mother, the deposit on the apartment, the friends she is ghosting. Distance doesn’t erase obligation — the road literally itemizes it as she goes."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90006,
+      "fragment": "The radio only plays the songs we ruined",
+      "annotations": [
+        {
+          "id": 39778834,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 33,
+          "url": "https://genius.com/39778834",
+          "body": {
+            "plain": "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories. The radio, indifferent, keeps serving them up, so even the escape car is haunted by the relationship’s soundtrack."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90007,
+      "fragment": "Dawn hit the windshield like applause",
+      "annotations": [
+        {
+          "id": 39776805,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 22,
+          "url": "https://genius.com/39776805",
+          "body": {
+            "plain": "The sunrise lands as an ovation — the theater metaphor resolving. After a life as an understudy, the first morning of the new life is the moment the world finally claps for her lead performance."
+          }
+        }
+      ]
+    },
+    {
+      "id": 90008,
+      "fragment": "Kept the map folded to the page with no roads",
+      "annotations": [
+        {
+          "id": 39774966,
+          "state": "accepted",
+          "verified": false,
+          "votes_total": 26,
+          "url": "https://genius.com/39774966",
+          "body": {
+            "plain": "She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch."
+          }
+        }
+      ]
+    }
+  ]
+}

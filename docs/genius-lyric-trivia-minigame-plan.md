@@ -7,6 +7,15 @@
 
 ---
 
+> **Update 2026-07-08 — data sources validated, prototype built.** The
+> Mixpanel Genius Production project (446209) tracks `song:open_annotation`
+> with both `Song ID` and `annotation_id`, giving the per-song annotation
+> inventory and engagement ranking directly (top pair: song 13580520 /
+> annotation 39886933, 122k opens Apr–Jul 2026). A working prototype of the
+> §4 pipeline and §3 game now lives in this repo — see the README. The
+> Genius API half runs on fixtures until a `GENIUS_ACCESS_TOKEN` and network
+> egress to genius.com are available in the dev environment.
+
 ## 1. Concept
 
 Every Genius song page gets an embedded trivia minigame that quizzes visitors

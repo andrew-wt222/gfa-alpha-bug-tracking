@@ -1,0 +1,108 @@
+{
+  "song_id": 13560175,
+  "song_title": "Midnight Getaway (Demo Fixture)",
+  "artist": "The Understudy",
+  "song_url": "https://genius.com/The-understudy-midnight-getaway-lyrics",
+  "generated_from": {
+    "genius": "referents + song description",
+    "mixpanel": "song:open_annotation opens (project 446209)"
+  },
+  "questions": [
+    {
+      "type": "meaning",
+      "prompt": "In the line “I left the porch light on so the house could pretend”, what is The Understudy getting at?",
+      "explanation": "The porch light is a classic symbol of waiting for someone to come home.",
+      "source": {
+        "annotation_id": 39776494,
+        "referent_id": 90001,
+        "annotation_url": "https://genius.com/39776494",
+        "verified": false,
+        "votes_total": 41,
+        "mixpanel_opens": 90548
+      },
+      "options": [
+        "The porch light is a classic symbol of waiting for someone to come home.",
+        "The album’s thesis line, and the source of the artist’s stage name.",
+        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories.",
+        "She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch."
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Packed the rearview full of everything I couldn't say”, what is The Understudy getting at?",
+      "explanation": "A verified line-note from the artist: the “rearview” holds the unsaid goodbyes.",
+      "source": {
+        "annotation_id": 39782267,
+        "referent_id": 90002,
+        "annotation_url": "https://genius.com/39782267",
+        "verified": true,
+        "votes_total": 66,
+        "mixpanel_opens": 80091
+      },
+      "options": [
+        "The sunrise lands as an ovation — the theater metaphor resolving.",
+        "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew.",
+        "A verified line-note from the artist: the “rearview” holds the unsaid goodbyes.",
+        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "meaning",
+      "prompt": "In the line “Gas station coffee tastes like being seventeen”, what is The Understudy getting at?",
+      "explanation": "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew.",
+      "source": {
+        "annotation_id": 39776463,
+        "referent_id": 90003,
+        "annotation_url": "https://genius.com/39776463",
+        "verified": false,
+        "votes_total": 38,
+        "mixpanel_opens": 78156
+      },
+      "options": [
+        "The sunrise lands as an ovation — the theater metaphor resolving.",
+        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories.",
+        "Cheap coffee triggers a sense-memory of her teenage years — late drives with friends before curfew.",
+        "Each mile marker reads like a debt statement: guilt about her mother, the deposit on the apartment, the friends she is ghosting."
+      ],
+      "answer_index": 2
+    },
+    {
+      "type": "reverse",
+      "prompt": "Deep cut: this explanation is about which lyric? — “She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch.”",
+      "explanation": "She navigates by a blank page on purpose: the destination is anywhere without a predetermined route. The folded map is a small act of faith that a life can be drawn from scratch.",
+      "source": {
+        "annotation_id": 39774966,
+        "referent_id": 90008,
+        "annotation_url": "https://genius.com/39774966",
+        "verified": false,
+        "votes_total": 26,
+        "mixpanel_opens": 48769
+      },
+      "options": [
+        "Kept the map folded to the page with no roads",
+        "Dawn hit the windshield like applause",
+        "I was the understudy in a play I wrote myself",
+        "I left the porch light on so the house could pretend"
+      ],
+      "answer_index": 0
+    },
+    {
+      "type": "song_meaning",
+      "prompt": "Big picture: what is “Midnight Getaway (Demo Fixture)” about?",
+      "explanation": "“Midnight Getaway” is the album’s emotional centerpiece, written the night the narrator decided to leave her hometown for good.",
+      "source": {
+        "song_id": 13560175,
+        "field": "description"
+      },
+      "options": [
+        "“Midnight Getaway” is the album’s emotional centerpiece, written the night the narrator decided to leave her hometown for good.",
+        "Shared songs become unlistenable after a breakup — the couple “ruined” them by attaching memories.",
+        "Each mile marker reads like a debt statement: guilt about her mother, the deposit on the apartment, the friends she is ghosting.",
+        "The album’s thesis line, and the source of the artist’s stage name."
+      ],
+      "answer_index": 0
+    }
+  ]
+}
