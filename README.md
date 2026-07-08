@@ -44,6 +44,8 @@ genius.com). Every fixture file carries a `_fixture_note` saying so.
 
 ```bash
 export GENIUS_ACCESS_TOKEN=...                  # from https://genius.com/api-clients
+# — or let the client exchange app credentials for a token itself:
+# export GENIUS_CLIENT_ID=... GENIUS_CLIENT_SECRET=...
 export MIXPANEL_SERVICE_ACCOUNT=username:secret # Mixpanel service account
 export MIXPANEL_PROJECT_ID=446209
 

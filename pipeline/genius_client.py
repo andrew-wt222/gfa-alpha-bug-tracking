@@ -1,8 +1,11 @@
 """Minimal Genius API client for the quiz pipeline.
 
-Uses the official OAuth API (https://api.genius.com) with a client access
-token from https://genius.com/api-clients:
-  export GENIUS_ACCESS_TOKEN=...
+Uses the official OAuth API (https://api.genius.com). Auth, either form:
+  export GENIUS_ACCESS_TOKEN=...            # client access token from
+                                            # https://genius.com/api-clients
+or let the client exchange app credentials for one at startup:
+  export GENIUS_CLIENT_ID=...
+  export GENIUS_CLIENT_SECRET=...           # POST /oauth/token (client_credentials)
 
 Endpoints used:
   GET /songs/:id                       -> title, artist, description ("About")
@@ -30,9 +33,28 @@ class GeniusClient:
         self.access_token = access_token or os.environ.get("GENIUS_ACCESS_TOKEN")
         self.use_fixtures = use_fixtures
         if not self.use_fixtures and not self.access_token:
+            self.access_token = self._exchange_client_credentials()
+        if not self.use_fixtures and not self.access_token:
             raise RuntimeError(
-                "Set GENIUS_ACCESS_TOKEN, or run with --fixture for offline demo data"
+                "Set GENIUS_ACCESS_TOKEN (or GENIUS_CLIENT_ID + GENIUS_CLIENT_SECRET), "
+                "or run with --fixture for offline demo data"
             )
+
+    @staticmethod
+    def _exchange_client_credentials():
+        client_id = os.environ.get("GENIUS_CLIENT_ID")
+        client_secret = os.environ.get("GENIUS_CLIENT_SECRET")
+        if not (client_id and client_secret):
+            return None
+        body = urllib.parse.urlencode({
+            "grant_type": "client_credentials",
+            "client_id": client_id,
+            "client_secret": client_secret,
+        }).encode()
+        req = urllib.request.Request(f"{API_BASE}/oauth/token", data=body, method="POST")
+        req.add_header("Content-Type", "application/x-www-form-urlencoded")
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.load(resp)["access_token"]
 
     def _get(self, path, **params):
         query = urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
