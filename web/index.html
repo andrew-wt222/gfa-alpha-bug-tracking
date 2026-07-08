@@ -17,19 +17,24 @@
     .lyrics { font-size: 16px; line-height: 2; white-space: pre-line; }
     .lyric-annotated { background: #e9e9e9; cursor: pointer; padding: 1px 2px; }
     .fixture-banner { background: #fff3cd; border: 1px solid #ffe08a; color: #6b5900; border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 18px; }
+    .lyrics-note { color: #777; font-size: 12px; font-style: italic; margin-bottom: 12px; }
   </style>
 </head>
 <body>
   <header>GENIUS <span class="note">song page mock · Verse IQ prototype</span></header>
   <div class="page">
     <main>
-      <div class="fixture-banner">
+      <div class="fixture-banner" id="fixture-banner" hidden>
         Demo fixture: song/annotation IDs are real (from Mixpanel project 446209);
         lyrics and annotation text are synthetic placeholders until the pipeline
         runs against the live Genius API.
       </div>
       <h1 id="song-title">Loading…</h1>
       <div class="artist" id="song-artist"></div>
+      <div class="lyrics-note" id="lyrics-note" hidden>
+        Annotated lines only — the Genius API serves annotated fragments, not
+        full lyrics. On the real song page the full lyrics DOM already exists.
+      </div>
       <div class="lyrics" id="lyrics"></div>
     </main>
     <aside>
@@ -41,22 +46,36 @@
   <script>
     const SONG_ID = 13560175;
 
-    // The mock page renders lyrics from the quiz's source fixture so the
-    // "see it in the lyrics" deep link has something to highlight. On the
-    // real song page the lyrics/referent DOM already exists.
+    const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    // On the real song page the lyrics/referent DOM already exists; the mock
+    // rebuilds just enough of it (ref-<referent_id> ids) for quiz deep links.
     async function renderPage() {
       const res = await fetch(`data/quiz-${SONG_ID}.json`);
       const quiz = await res.json();
       document.getElementById("song-title").textContent = quiz.song_title;
       document.getElementById("song-artist").textContent = quiz.artist;
 
-      const fixture = await fetch(`fixture-lyrics-${SONG_ID}.json`).then(r => r.ok ? r.json() : null);
-      if (fixture) {
-        document.getElementById("lyrics").innerHTML = fixture.lines
-          .map(line => line.referent_id
-            ? `<span class="lyric-annotated" id="ref-${line.referent_id}">${line.text}</span>`
-            : line.text)
-          .join("\n");
+      if (quiz.fixture) {
+        // Offline demo: synthetic full lyrics from the fixture file
+        document.getElementById("fixture-banner").hidden = false;
+        const fixture = await fetch(`fixture-lyrics-${SONG_ID}.json`).then(r => r.ok ? r.json() : null);
+        if (fixture) {
+          document.getElementById("lyrics").innerHTML = fixture.lines
+            .map(line => line.referent_id
+              ? `<span class="lyric-annotated" id="ref-${line.referent_id}">${esc(line.text)}</span>`
+              : esc(line.text))
+            .join("\n");
+        }
+      } else {
+        // Live data: render the song's annotated fragments from the pipeline export
+        const frags = await fetch(`data/fragments-${SONG_ID}.json`).then(r => r.ok ? r.json() : null);
+        if (frags) {
+          document.getElementById("lyrics-note").hidden = false;
+          document.getElementById("lyrics").innerHTML = frags.fragments
+            .map(f => `<span class="lyric-annotated" id="ref-${f.referent_id}">${esc(f.text)}</span>`)
+            .join("\n\n");
+        }
       }
       VerseIQ.mount(document.getElementById("verse-iq"), SONG_ID);
     }
