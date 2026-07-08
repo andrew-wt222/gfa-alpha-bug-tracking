@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Verse IQ — Genius Song Trivia",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Lyric & song trivia on any Genius song page, generated live from annotations and song metadata. Alpha — unreviewed content.",
   "permissions": ["storage"],
   "host_permissions": [
