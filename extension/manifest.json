@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Verse IQ — Genius Song Trivia",
+  "version": "0.1.0",
+  "description": "Lyric & song trivia on any Genius song page, generated live from annotations and song metadata. Alpha — unreviewed content.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.genius.com/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["https://genius.com/*"],
+      "js": ["content.js"],
+      "css": ["widget.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}

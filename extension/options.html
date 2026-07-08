@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Verse IQ — Settings</title>
+  <style>
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: #121212; color: #fff; max-width: 520px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 18px; }
+    h1 span { color: #ffff64; }
+    p { color: #bdbdbd; font-size: 13px; line-height: 1.5; }
+    input { width: 100%; box-sizing: border-box; background: #1e1e1e; color: #fff; border: 1px solid #3a3a3a; border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+    button { margin-top: 12px; background: #ffff64; color: #121212; font-weight: 700; border: none; border-radius: 8px; padding: 10px 18px; font-size: 13px; cursor: pointer; }
+    button:hover { background: #ffef2e; }
+    #status { font-size: 12px; margin-top: 10px; color: #38c172; min-height: 16px; }
+    a { color: #ffff64; }
+  </style>
+</head>
+<body>
+  <h1><span>VERSE IQ</span> — Settings</h1>
+  <p>
+    Paste a Genius API <strong>client access token</strong> (from
+    <a href="https://genius.com/api-clients" target="_blank">genius.com/api-clients</a>).
+    It is stored in your browser's extension storage and only sent to
+    <code>api.genius.com</code>.
+  </p>
+  <input type="password" id="token" placeholder="Genius access token" autocomplete="off" />
+  <button id="save">Save</button>
+  <div id="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>

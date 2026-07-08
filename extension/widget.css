@@ -1,0 +1,131 @@
+/* Verse IQ extension widget — floating panel over any Genius song page.
+ * Visual language matches web/quiz-widget.css (dark card, Genius yellow). */
+
+#verse-iq-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 380px;
+  max-height: min(72vh, 640px);
+  z-index: 2147483000;
+  background: #121212;
+  color: #fff;
+  border: 1px solid #2b2b2b;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#verse-iq-panel .viq-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2b2b2b;
+}
+#verse-iq-panel .viq-brand {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #ffff64; /* Genius yellow */
+}
+#verse-iq-panel .viq-alpha {
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #6b5900;
+  background: #fff3cd;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: help;
+}
+#verse-iq-panel .viq-min {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #bdbdbd;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+#verse-iq-panel .viq-min:hover { color: #fff; }
+#verse-iq-panel.viq-minimized .viq-body { display: none; }
+
+#verse-iq-panel .viq-body { overflow-y: auto; padding: 12px; }
+
+#verse-iq-panel .viq-card { font-size: 14px; }
+#verse-iq-panel .viq-kicker {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ffff64;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+#verse-iq-panel .viq-card h3 { margin: 0 0 10px; font-size: 16px; line-height: 1.35; }
+#verse-iq-panel .viq-card p { color: #bdbdbd; font-size: 13px; margin: 0 0 12px; }
+#verse-iq-panel .viq-loading { color: #bdbdbd; }
+
+#verse-iq-panel .viq-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+#verse-iq-panel .viq-btn:hover:not(:disabled) { border-color: #ffff64; }
+#verse-iq-panel .viq-btn:disabled { cursor: default; opacity: 0.9; }
+
+#verse-iq-panel .viq-primary {
+  background: #ffff64;
+  color: #121212;
+  font-weight: 700;
+  text-align: center;
+}
+#verse-iq-panel .viq-primary:hover:not(:disabled) { background: #ffef2e; }
+
+#verse-iq-panel .viq-option.viq-correct { border-color: #38c172; background: #12351f; }
+#verse-iq-panel .viq-option.viq-wrong { border-color: #e3342f; background: #3a1513; }
+
+#verse-iq-panel .viq-feedback {
+  margin-top: 12px;
+  border-top: 1px solid #2b2b2b;
+  padding-top: 10px;
+}
+#verse-iq-panel .viq-verdict { font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+#verse-iq-panel .viq-feedback blockquote {
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border-left: 3px solid #ffff64;
+  background: #1a1a1a;
+  color: #ddd;
+  font-size: 12px;
+}
+#verse-iq-panel .viq-source { color: #8a8a8a; font-size: 11px; margin-bottom: 8px; }
+#verse-iq-panel .viq-source a { color: #ffff64; }
+
+#verse-iq-panel .viq-result { text-align: center; }
+#verse-iq-panel .viq-score { font-size: 40px; font-weight: 800; color: #ffff64; }
+
+/* Flash applied to the page's real referent anchor on deep-link */
+.viq-lyric-flash {
+  animation: viq-flash 1.6s ease-out 2;
+  border-radius: 3px;
+}
+@keyframes viq-flash {
+  0% { background-color: #ffff64; }
+  100% { background-color: transparent; }
+}

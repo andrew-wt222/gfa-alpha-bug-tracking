@@ -67,6 +67,26 @@ No third-party Python dependencies — stdlib only.
 | `pipeline/fixtures/` | Synthetic Genius payloads for offline demo |
 | `web/` | Song-page mock + embeddable quiz widget (vanilla JS/CSS) |
 
+## Chrome extension — play on any Genius song page
+
+`extension/` is an MV3 Chrome extension that runs the whole pipeline
+client-side: visit any genius.com song page and it detects the song,
+generates a quiz live from the Genius API, and mounts a floating widget.
+Beyond the annotation questions it adds song-metadata types: producer,
+album, featured artists, and release year.
+
+Setup:
+
+1. `chrome://extensions` → enable Developer mode → "Load unpacked" →
+   select `extension/`.
+2. Mint an access token (never printed; lands on your clipboard):
+   `source ~/.genius_env && python3 pipeline/mint_token.py`
+3. Paste it into the extension's options page, reload the Genius tab.
+
+The widget carries an **ALPHA · UNREVIEWED** badge: in-extension
+generation can't go through the plan §4.4 human-review queue, so this
+surface stays internal-only.
+
 ## Analytics
 
 The widget fires the events defined in plan §2 (`quiz_impression`,
