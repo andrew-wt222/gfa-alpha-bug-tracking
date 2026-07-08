@@ -21,11 +21,33 @@ demo work offline.
 import json
 import os
 import pathlib
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
 API_BASE = "https://api.genius.com"
 FIXTURE_DIR = pathlib.Path(__file__).parent / "fixtures"
+MAX_RETRIES = 4
+BACKOFF_BASE_SECONDS = 2  # 2, 4, 8, 16 on 429/5xx
+
+
+def _urlopen_with_retry(req):
+    """Polite retry with exponential backoff on rate limits and server errors."""
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            return urllib.request.urlopen(req, timeout=30)
+        except urllib.error.HTTPError as e:
+            retryable = e.code == 429 or 500 <= e.code < 600
+            if not retryable or attempt == MAX_RETRIES:
+                raise
+            retry_after = e.headers.get("Retry-After")
+            delay = (
+                float(retry_after)
+                if retry_after and retry_after.isdigit()
+                else BACKOFF_BASE_SECONDS * (2 ** attempt)
+            )
+            time.sleep(delay)
 
 
 class GeniusClient:
@@ -53,14 +75,14 @@ class GeniusClient:
         }).encode()
         req = urllib.request.Request(f"{API_BASE}/oauth/token", data=body, method="POST")
         req.add_header("Content-Type", "application/x-www-form-urlencoded")
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with _urlopen_with_retry(req) as resp:
             return json.load(resp)["access_token"]
 
     def _get(self, path, **params):
         query = urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
         req = urllib.request.Request(f"{API_BASE}{path}?{query}")
         req.add_header("Authorization", f"Bearer {self.access_token}")
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with _urlopen_with_retry(req) as resp:
             return json.load(resp)["response"]
 
     def _fixture(self, song_id):
